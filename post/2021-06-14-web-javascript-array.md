@@ -43,20 +43,26 @@
 - 얕은 복사는 주소값만 복사해서, 하나의 데이터 변경 시 복사한 데이터 전부 값이 변경된다. 
 
 ```javascript
+{ %raw% }
 let array2 = array
+{ %endraw% }
 ```
 
 - 배열의 깊은복사는 배열 값을 하나하나 전부 복사해야 한다. 
 
 ```javascript
+{ %raw% }
 for(let i in array){
   array3[i] = array[i]
 }
+{ %endraw% }
 ```
 
 
 - 깊은 복사를 쉽게 하려면 전개 연산자를 사용할 수 있다. 
 
 ```javascript
+{ %raw% }
 let array4 = [...array]
+{ %endraw% }
 ```
