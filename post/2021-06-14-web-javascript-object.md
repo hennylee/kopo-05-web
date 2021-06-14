@@ -46,3 +46,33 @@ with(반복시킬 구문){
     생략된 구문
 }
 ```
+
+
+## 객체에 접근하지 못하게 하는 방법 : 캡슐화
+
+- 5버전 까지의 캡슐화
+  - 임의의 일반 변수로 가지고 있고, getter/setter를 통해 access할 수 있도록만 만들어주는 방식이다.
+
+
+```javascript
+function Person(n, p, a){
+  let name = n
+  let phone = p
+  let addr = a
+
+  this.getName = function() {
+    return name
+  }
+
+  this.setName = function(n) {
+    name = n
+  }
+}
+```
+
+- 6버전부터는 클래스를 사용한다.
+  - 이 클래스가 자바의 객체지향적 클래스는 아니다. 
+  - 실제 자바스크립트에서는 프로토타입이다. 
+
+
+
