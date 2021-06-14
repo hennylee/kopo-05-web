@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/* Closure : 반환값으로 함수 넘겨주는 함수 */
+	function returnFunction(){
+		return function(){
+			document.write('return function()...<br>')
+		}
+	}
+	
+	/* Closure 함수 실행 방법 (1) */
+	let ret = returnFunction()
+	ret()
+	
+	/* Closure 함수 실행 방법 (2) */
+	returnFunction()()
+	
+	
+	/* Closure의 사용 목적 */
+	function test(name){
+		/* output 변수는 test함수 안에서만 살아 있다. */
+		/* 함수를 호출하고난 후에도 변수 값을 잠시동안 유지시키고 싶을 때, closure를 사용한다.  */
+		let output = 'Hello' + name + '!!!'
+		return output
+	}
+	document.write(test('홍길동')+'<br>')
+	
+	function test01(name){
+		/* output 변수는 test함수 안에서만 살이 있다. */
+		/* 함수를 호출하고난 후에도 변수 값을 잠시동안 유지시키고 싶을 때, closure를 사용한다.  */
+		let output = 'Hello' + name + '!!!'
+		return function(){
+			document.write(output+'<br>')
+		}
+	}
+	
+	f = test01('홍길동')
+	f()
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

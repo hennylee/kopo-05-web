@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	function makePerson(name, phone, addr) {
+		let person = {
+				'name' : name,
+				'phone' : phone,
+				'addr' : addr,
+				'info' : function(){
+					let msg = ''
+					for(let key in this){
+						if(key != 'info')
+							msg += key + ' : ' + this[key] + '<br>'
+					}
+					document.write(msg)
+				}
+		}
+		return person
+	}
+	
+	/* 객체 1개만 생성하기  */
+	let p = makePerson('홍길동', '010-1212-1111', '경기도 고양시')
+	p.info()
+	document.write('<hr>')
+	console.log(p)
+	
+	/* 객체 여러개 배열로 담기 */
+	let persons = []
+	persons.push(makePerson('홍길동', '010-1212-1111', '경기도 고양시'))
+	persons.push(makePerson('홍길순', '010-2222-3333', '서울시 강남구'))
+	
+	/* of 쓰면 객체 받기, in 쓰면 index 받기 */
+	for(let p of persons){
+		p.info()
+		document.write('<br>')
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

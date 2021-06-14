@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+/* 람다 		: 	function() {} 		대신 		() => {} 		형식을 사용한다. */
+
+
+	let multiply = function(a, b){
+		return a * b
+	}
+	
+	/* 화살표 함수(람다)로 표현하면? */
+	let multiply01 = (a, b) => {return a * b}
+	
+	let multiply02 = (a, b) => a*b // 한줄일 경우 {return } 생략 가능
+	
+	document.write(multiply(10, 20))
+	document.write('<br>')
+	
+	document.write(multiply01(50, 20))
+	document.write('<br>')
+
+	document.write(multiply02(100, 20))
+	document.write('<br>')
+
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	/* 자바스크립트에서는 매개변수로 날라온 변수를 저장하는 변수를 가지고 있다 => arguments */
+	function func(){
+		document.write(arguments, arguments.length)
+		document.write('<br>')
+		
+		console.log(arguments)
+		
+		switch(arguments.length){
+		case 0:
+			document.write('call...')
+			break;
+		case 1:
+			document.write(`data : ${arguments[0]} `)
+			break;
+		case 2:
+			document.write(`no : ${arguments[0]}, msg : ${arguments[1]} `)
+			break;
+		}
+		document.write('<br>')
+		
+	}
+	
+	func()
+	func('A')
+	func(12, 'hello')
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
