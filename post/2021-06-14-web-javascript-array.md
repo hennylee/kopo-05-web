@@ -16,3 +16,22 @@
 - for ~ in
 
 - for ~ of
+
+
+
+
+## 깊은 복사 vs 얕은 복사
+
+- 얕은 복사는 주소값만 복사해서, 하나의 데이터 변경 시 복사한 데이터 전부 값이 변경된다. 
+
+- 깊은 복사를 쉽게 하려면 전개 연산자를 사용할 수 있다. 
+
+```javascript
+for(let i in array){
+  array3[i] = array[i]
+}
+```
+
+```javascript
+let array4 = [...array]
+```
