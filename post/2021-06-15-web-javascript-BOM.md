@@ -11,18 +11,24 @@
 
 ## location
 
-- url 이동시키기
-  - `location.href = '' `
-  - `location = '' `
-  - `location.assign('')`
-  - `location.replace('')` : 뒤로가기가 안먹힘
+- 자바스크립에서 동적으로 네이버 링크로 이동하도록 만들기
+  - `location.href`
+  - `location`
+  - `location.assign`
+  - `location.replace` : 뒤로가기가 안먹힘
 
 
+- 팝업창 관련
+  - `window.open` : 팝업창 열기
+  - `moveTo` : 부모 window의 left-top 위치에서부터 지정한 n x m 만큼 이동
+  - `moveBy` : 현재 나의 위치를 기준으로 지정한 n x m 만큼 이동
+  - `resize` : 팝업창 크기 변경하기
+ 
 ## history
 
 - `history.back` : 뒤로가기
 
-- `history.go(n)` : 특정 지점으로 이동하기, 현재 = 0이다. -1, -2...는 n번째 뒤로 가기, +1, +2,...는 n번째 앞으로 가기
+- `history.go` : 특정 지점으로 이동하기, 현재 = 0이다. -1, -2...는 n번째 뒤로 가기, +1, +2,...는 n번째 앞으로 가기
 
 ## onload
 
