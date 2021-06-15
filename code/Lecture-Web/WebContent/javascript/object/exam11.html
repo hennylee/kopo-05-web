@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 자바스크립트의 내장객체 : Number, String, Array, Math, Object, Date */
+	let num = 100
+	let num2 = new Number(100)
+	
+	console.log(typeof num == 'number') // true : "number"
+	console.log(typeof num2 == 'number') // false :  "object"
+
+	console.log(num.constructor == Number) // true : "number"
+	console.log(num2.constructor == Number) // true : "number"
+	
+	Object.prototype.info = function() {
+		document.write(`this : ${this} <br>`)
+	}
+	
+	num2.info()
+	num.info()
+	
+	
+	/* String 내장객체 */
+	let str = "Hello World!"
+	console.log(str.charAt(0))
+	
+	/* String 내장객체  with  CSS */
+	let str2 = new String("Hello JAVASCRIPT~!")
+	
+	String.prototype.changeStr = function(){
+		// str2.changeStr() 에서 this는 str2임
+		return this.bold().fontcolor('red').fontsize('20pt').link('http://www.naver.com')
+	}
+	
+	document.write(str2 + '<br>')
+	document.write(str2.changeStr() + '<br>')
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	
+	/*
+		JSON.parse()		: 문자열을 자바스크립트객체 변환
+		JSON.stringify()	: 자바스크립트객체를 문자열로 변환
+	*/
+	
+	let person = {
+		'name' : '홍길동',
+		'phone' : '010-1111-1111',
+		'addr' : '경기도 광명시'
+		
+		/*
+		,
+		toJSON : function(){
+			return {
+				'name' : this.name,
+				'phone' : this.phone,
+			}
+		}
+		*/
+	}
+		
+	console.log(person) // Object
+	console.log(JSON.stringify(person)) // {"name":"홍길동","phone":"010-1111-1111","addr":"경기도 광명시"}
+		
+	// stringify() = toJSON 함수
+	let strPerson = JSON.stringify(person)
+	console.log(strPerson)
+	document.write(strPerson)
+	
+	let person2 = JSON.parse(strPerson)
+	console.log(person2)
+	
+	let str = '{"name" : "홍길순" , "phone" : "010-2222-2222"}'
+	
+	/* 자바에서 toString을 이런 형식으로 만들어서 넘겨주면 된다. => 근데 복잡하니까 json으로 바꿔주는 라이브러리 쓰기 */
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
