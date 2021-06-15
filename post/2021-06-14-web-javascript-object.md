@@ -104,17 +104,61 @@ with(반복시킬 구문){
 
 - 자바 스크립트에서는 클래스 개념이 없다. new를 사용한다고 해서 자바에서처럼 클래스가 생성되는 개념이 아니다. 
 
+- 자바스크립트는 동적으로 객체의 key를 추가할 수 있다.
+
+- 사람 객체 생성자 함수 예시 : 
+
+```js
+{% raw %}
+<script type="text/javascript">
+	function Person(name, phone, addr){
+		this.name = name
+		this.phone = phone
+		this.addr = addr
+	}
+
+	// prototype (1) : 공통 취미
+	Person.prototype.hobby = '영화감상'
+	
+	// prototype (2) : 정보 출력
+	Person.prototype.info = function(){
+		let msg = ''
+		for(let key in this){
+			if(key != 'info')
+				msg += key += ' : ' + this[key] + '<br>'
+		}
+		document.write(msg)
+	}
+	
+	// 사람 객체 생성
+	let p = new Person("홍길동", "010-1111-1111", "경기도 광명시")
+	p.info()
+	console.log(p)
+	
+</script>
+{% endraw %}
+```
+
+![image](https://user-images.githubusercontent.com/77392444/121975107-d02b2900-cdbb-11eb-993d-cfa7630ceecf.png)
+
+
+![image](https://user-images.githubusercontent.com/77392444/121974997-9f4af400-cdbb-11eb-836a-5867029222aa.png)
+
+
+
 
 
 ## 프로토타입
 
 - 자바스크립트에서 proto를 가지고 있으면 객체, proto를 가지고 있지 않으면 객체가 아니다. 
 
-- 자바스크립트에서 상속은 클래스 상속이 아니고, 프로토타입을 가지고 있는지가 중요하다.
-
 - 두 객체가 공통으로 사용하는 부분을 prototype이라고 생각할 수 있다. 
 
 - 프로토타입은 생성자(new)를 가지고 있는 객체에서만 사용할 수 있다.
+
+- 자바스크립트에서 상속은 클래스 상속이 아니고, 프로토타입을 가지고 있는지가 중요하다.
+
+- 그래서 
 
 
 
@@ -155,3 +199,25 @@ function Person(n, p, a){
 - 깊은 복사는 객체의 key, value 를 전부 복사해놔야 한다. 
 
 - `let person4 = {...person}`처럼 전개 연산자를 사용한다면 깊은 복사를 쉽게 할 수 있다. 
+
+
+
+
+## class를 통해 객체 생성하기
+- ECM6버전부터 클래스 개념이 생겼다.
+
+- 클래스가 내부적으로는 prototype으로 바뀐다. 
+
+- 그래서 class와 생성자 함수는 같다고 볼 수 있다. 단지 개발자들이 이해하기 쉽게 문법만 바뀐 것이다. 
+
+- 생성자 함수 대신 constructor를 사용하기 때문에 function 키워드가 불필요하다.
+
+![image](https://user-images.githubusercontent.com/77392444/121977145-3fa31780-cdc0-11eb-8823-cd034b68cbdf.png)
+
+
+### 은닉화
+
+- 은닉화 : 멤버 변수 앞에 `_` 붙이고 getter/setter 메소드를 만들어서 `_`가 붙은 멤버변수에 접근하도록 한다.
+
+
+### 
