@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	window.onload = function(){
+		
+		let id = document.getElementById('id')
+		
+		/* 동적으로 body 태그 지우기 */
+		id.remove() 				  // explore에서는 안먹힘 , 그롬이나 엣지에서만 사용 가능
+		pw.parentNode.removeChild(pw) // explore에서도 먹힘
+		
+		/* 동적으로 css 속성 바꾸기 */
+		let name = document.getElementsByClassName('name')
+		name[0].style.fontSize = '15pt'
+		name[0].style.color = 'red'
+		name[0].style.border = '2px dotted orange'
+		name[0].style.backgroundColor = 'yellow'
+		name[1].style['background-color'] = 'pink'
+		
+	}
+</script>
+</head>
+<body>
+	<table style="width:100; height: 100;" border="1">
+		<tr>
+			<td id = "id"> ID </td>
+		</tr>
+		
+		<tr>
+			<td id = "pw"> PASSWORD </td>
+		</tr>
+		
+		<tr>
+			<td class = "name"> NAME </td>
+		</tr>
+		
+		<tr>
+			<td class = "name"> Eng NAME </td>
+		</tr>
+	</table>
+</body>
+</html>
