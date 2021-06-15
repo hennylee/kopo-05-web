@@ -49,7 +49,7 @@ with(반복시킬 구문){
 ## 객체 생성
 
 ```js
-{ %raw% }
+{ % raw % }
 <script type="text/javascript">
 
 	function makePerson(name, phone, addr) {
@@ -87,7 +87,7 @@ with(반복시킬 구문){
 	}
 	
 </script>
-{ %endraw% }
+{ % endraw % }
 ```
 
 
@@ -170,7 +170,7 @@ with(반복시킬 구문){
 
 
 ```javascript
-{ %raw% }
+{ % raw % }
 function Person(n, p, a){
   let name = n
   let phone = p
@@ -184,7 +184,7 @@ function Person(n, p, a){
     name = n
   }
 }
-{ %endraw% }
+{ % endraw % }
 ```
 
 - 6버전부터는 클래스를 사용한다.
