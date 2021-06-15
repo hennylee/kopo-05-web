@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let nums = [10, 20, 30, 40, 50]
+	
+	document.write('nums : ' + nums + '<br>')
+	
+	/* 깊은 복사 */
+	let copyNums = [...nums]
+	document.write('copyNums : ' + copyNums + '<br>')
+
+	
+	/* nums의 각 요소에 100씩 더해서 깊은 복사 */
+	let copyNums2 = []
+	for(let num of nums){
+		copyNums2.push(num + 100)
+	}
+	document.write('copyNums2 : ' + copyNums2 + '<br>')
+	
+	
+	/* map 활용해서 100씩 더한값 깊은 복사 */
+	let copyNums3 = nums.map(function(element) {
+		return element + 100
+	})
+	document.write('copyNums3 : ' + copyNums3 + '<br>')
+	
+	
+	/* return에 조건문 써서 짝수값만 깊은 복사 */
+	nums = [5, 23, 1, 65, 34, 183, 12, 25]
+	
+    let evenNums = nums.filter(function (element, index, array) {
+		// return뒤에 조건이 있으면, 이조건을 만족하는 element만 return
+		return element % 2 == 0
+	})
+	
+	document.write('nums : ' + nums + '<br>')
+	document.write('evenNums : ' + evenNums + '<br>')
+	
+	
+	/* every() 함수 써서 nums의 값이 양수인지 확인 */
+	let bool = nums.every(function(element){
+		return element > 0
+	})
+	
+	document.write('양의 정수 집합 판단 : ' + bool + '<br>')
+
+	/* some() 함수 써서 nums에 양수 값이 하나라도 있는지 확인 */
+	let bool2 = nums.some(function(element){
+		return element < 0
+	})
+	
+	document.write('양의 존재 판단 : ' + bool2 + '<br>')
+	
+	
+	/* 배열의 총합 구하기 */
+	nums = [1, 2, 3, 4, 5]
+	let sum = 0
+	for(const data of nums){
+		sum += data
+	}
+	document.write(nums + '총합 : ' + sum + '<br>')
+	
+	/* reduce 활용해서 배열의 총합 구하기 */
+	
+	// 데이터가 하나만 남을 때까지 계속 더함
+	sum = nums.reduce(function(before, element, index, array){
+		console.log(arguments)
+		return before + element
+	})
+	document.write(nums + '총합 : ' + sum + '<br>')
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
