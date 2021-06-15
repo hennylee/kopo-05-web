@@ -206,18 +206,64 @@ function Person(n, p, a){
 ## class를 통해 객체 생성하기
 - ECM6버전부터 클래스 개념이 생겼다.
 
-- 클래스가 내부적으로는 prototype으로 바뀐다. 
+- 클래스도 내부적으로는 prototype으로 바뀐다. 
 
 - 그래서 class와 생성자 함수는 같다고 볼 수 있다. 단지 개발자들이 이해하기 쉽게 문법만 바뀐 것이다. 
 
-- 생성자 함수 대신 constructor를 사용하기 때문에 function 키워드가 불필요하다.
+- 클래스에서는 생성자 함수 대신 constructor를 사용하기 때문에 function 키워드가 불필요하다.
 
 ![image](https://user-images.githubusercontent.com/77392444/121977145-3fa31780-cdc0-11eb-8823-cd034b68cbdf.png)
 
 
-### 은닉화
+### class 은닉화
 
 - 은닉화 : 멤버 변수 앞에 `_` 붙이고 getter/setter 메소드를 만들어서 `_`가 붙은 멤버변수에 접근하도록 한다.
 
 
-### 
+### class 상속
+
+- 자바와 동일하게 extends 키워드를 사용하면 된다. 
+
+- 상속 후, constructor에서 super 키워드로 상속받은 멤버변수를 받아줘야 한다. 
+
+
+
+## 내장객체
+
+- Number, String, Array, Math, Object, Date 등이 있다. 
+
+- Number 내장객체
+
+```js
+num = 12.34
+// 12.34
+
+num.toFixed(1)
+// "12.3"
+```
+
+- String 내장객체 : 자바와 유사하지만, css와 관련된 메소드들이 존재한다. 
+
+![image](https://user-images.githubusercontent.com/77392444/121981830-60239f80-cdc9-11eb-87df-cd96298c2ae8.png)
+
+
+- CSS와 관련된 String 내장객체
+
+	- bold() : b태그가 붙은 효과를 낸다. 
+
+	- fontcolor(색상) : 폰트 색상을 변경한다. 
+
+	- fontsize('20pt') : 폰트 크기를 변경한다. 
+
+	- link(url) : a태그를 붙여줘서 하이퍼링크로 만들어준다. 
+
+
+- Date 내장객체
+
+
+## JSON
+
+- `JSON.parse()` : 문자열을 자바스크립트 객체로 변환, eval()은 보안에 불리하기 때문에 parse 명령어를 많이 쓴다. 
+
+- `JSON.stringify()` : 자바스크립트 객체를 문자열로 변환
+
