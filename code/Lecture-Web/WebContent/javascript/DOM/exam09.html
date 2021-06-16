@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	/* 올바르게 입력했을때만 submit버튼을 눌렀을때 action이 실행되어야 한다. => onsubmit 속성 */
+	/* onsubmit = "return true"  => 전송됨 */
+	/* onsubmit = "return false" => 전송안됨 */
+	
+	function whenSubmit(){
+		/* 
+		
+		let id = document.getElementById('id')
+		let pwd = document.getElementById('id') 
+		
+
+		if(id.value == ""){
+			alert('아이디를 입력하세요')
+			return false
+		}
+		
+		*/
+		
+		/* form태그만 유일하게 name 속성을 통해서 접근할 수 있다. */
+		
+		// 아이디 입력체크 
+		let f = document.inputForm
+		
+		if(f.id.value == ''){
+			alert('아이디를 입력하세요')
+			return false
+		}
+		
+		// 아이디 중복체크
+		if(f.pwd.value != f.pwdCheck.value){
+			alert('패스워드가 서로 다릅니다.')
+			return false
+		}
+        
+		
+		return true // onsubmit이벤트는 return true이면 전송되고, return false이면 전송이 안된다.
+	}
+	
+</script>
+</head>
+<body>
+	<form action="exam08.html" name="inputForm" onsubmit="return whenSubmit()">
+		<!-- 
+		아이디 : <input type = "text" name = "id" required> <br>
+		패스워드 : <input type = "password" name = "pwd" required> <br>
+		패스워드 확인 : <input type = "password" name = "pwdCheck" required> <br> 
+		-->
+		아이디 : <input type = "text" name = "id"> <br>
+		패스워드 : <input type = "password" name = "pwd"> <br>
+		패스워드 확인 : <input type = "password" name = "pwdCheck"> <br>
+		<input type = "submit" value="전송"> 
+	</form>
+</body>
+</html>

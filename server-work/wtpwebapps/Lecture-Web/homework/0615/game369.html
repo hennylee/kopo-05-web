@@ -22,6 +22,8 @@
 		if(num.toString().includes('3') || num.toString().includes('6')  || num.toString().includes('9')) {
 			document.write(clap + '<br>')
 			
+			console.log(num.toString().indexOf('3'))
+			
 			// 10의 배수일때 이고 3, 6, 9가 들어갈 때
 			if(num % 10 == 0){
 				ten += '뽀'

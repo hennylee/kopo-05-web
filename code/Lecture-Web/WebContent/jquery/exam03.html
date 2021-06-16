@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	$(document).ready(function(){
+		alert('로딩')
+		//$('ul li').hide() => li 태그 전부 지워짐
+		//$('ul li:first').hide() => 호랑이만 지워짐
+		//$('ul li:first-child').hide() => 각각 ul li 그룹의 첫번째 값만 지워짐
+		//$('ul li:last-child').hide() => 각각 ul li 그룹의 마지막 값만 지워짐
+		
+		
+		/* a태그 중에서 타겟 속성을 가지고 있는 아이들만 숨기기 */
+		//$('a[target]').hide()
+		
+		/* href 속성이 네이버인 애들만 지우기 */
+		//$('a[href="http://www.naver.com"]').hide()
+		
+		/* input 타임에서 속성이 버튼인 것 제거하기 */
+		//$('input[type=button]').hide()
+		//$('input:button').hide()
+		
+		/* 버튼 두 개 다 지우기 */
+		//$(':button').hide() // button 태그는 type="button"이라는 것이 생략되어 있기 때문이다. 
+		
+		
+		/* 버튼 태그만 지우기 */
+		//$('button').hide()
+		
+		/* 버튼의 클릭 이벤트 처리하기 */
+		$(':button').click(function(){
+			//$('h2').hide()
+			
+			/* 클릭당한 대상을 숨기기 */
+			$(this).hide( "drop", { direction: "left" }, "fast" ) // 제이쿼리 ui로 효과주기
+			//console.log($(this))
+		})
+		
+	})
+</script>
+</head>
+<body>
+	<h2>button 전</h2>
+	<input type="button" value="버튼1">
+	<button>버튼2</button>
+	<h2>button 후</h2>
+	
+	<hr>
+	
+	<h2>a Tag 전</h2>
+	<a href="http://www.naver.com">네이버</a>
+	<a href="http://www.daum.com" target="_blank">다음</a>
+	<h2>a Tag 후</h2>
+
+	<hr>
+
+	<h1>동물종류</h1>
+	<ul>
+		<li>호랑이</li>
+		<li>늑대</li>
+		<li>코끼리</li>
+		<li>여우</li>
+	</ul>
+	
+	<h1>음식종류</h1>
+	<ul>
+		<li>김밥</li>
+		<li>냉면</li>
+		<li>초밥</li>
+		<li>돈까스</li>
+		<li>카레</li>
+	</ul>
+</body>
+</html>

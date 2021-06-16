@@ -8,9 +8,11 @@
 	window.onload = function(){
 		
 		let num = 0
+		let pTag = document.createElement('p')
 		let pText = document.createTextNode(`${num} 번 클릭`)
 		
-		document.body.appendChild(pText)
+		pTag.appendChild(pText)
+		document.body.appendChild(pTag)
 		
 		let clickBtn = document.createElement('input')
 		clickBtn.setAttribute('type', 'button')
@@ -19,15 +21,14 @@
 		document.body.appendChild(clickBtn)
 		
 		clickBtn.onclick = function(){
-			num++
-			console.log()
+			let newPTag = document.getElementsByTagName('p')
+			let target = newPTag.innerText
+			target = num++
+			
 		}
 
 		console.log(clickBtn)
 	}
-	
-	
-	
 	
 </script>
 </head>

@@ -7,15 +7,14 @@
 
 	window.onload = function(){
 		let btn = document.getElementsByTagName('input')
-		let val = ''
 			
-		for(let b of btn){
-			val = b.getAttribute('value')
-			console.log(val)
-		}
+		let val = btn.getAttribute('value')
+		console.log(val)
+		
 		
 		let result = document.getElementById('result')
 		console.log(result)
+		
 		
 		result.onclick = function(){
 			result.setAttribute('value', val)
@@ -50,7 +49,7 @@
 		<!-- 계산기 결과 -->
 		<tr>
 			<td colspan="4">
-				<input type = "number" width="10px" height="4px" id = "result"/>
+				<input type = "text" width="10px" height="4px" id = "result"/>
 			</td>
 		</tr>
 		

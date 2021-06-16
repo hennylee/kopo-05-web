@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/Lecture-Web/jquery/js/jquery-3.6.0.min.js"></script>
+<style>
+	.worldMap{
+		background-image: url(./World_Map.svg);
+		width: 1500px;
+		height: 800px;
+	}
+	
+	img[src='Maps-Location-icon.png']{
+		width:50px; 
+		height:50px;
+		color: pink;
+	}
+	#korea{
+		position: relative;
+		top: 480px;
+		left: 660px;
+	}
+	#china{
+		position: relative;
+		top: 500px;
+		left: 500px;
+	}
+	#russia{
+		position: relative;
+		top: 300px;
+		left: 450px;
+	}
+</style>
+<!--  
+세계 지도에 나라마다 마커가 있음
+마커에 마우스 가져가면, 서울 시간 ㅇㅇ시 ㅇㅇ분... 정보 나오도록 하기
+
+국
+제이쿼리 ui에 있는 효과인 Tooltip? 을 사용해도 됨
+-->
+<script>
+	$(document).ready(function(){
+	    //tooltip 생성
+	    $(".mapPin").tooltip();
+	});
+	
+	function mapInfo(e) {
+		
+		let time = ''
+		
+		switch (e) {
+		case 'korea':
+			time = getWorldTime(+9)
+			break;
+		case 'china':
+			time = getWorldTime(+8)
+			break;
+		case 'russia':
+			time = getWorldTime(+3)
+			break;
+		}
+		
+		
+		
+		let info = `${e} / ${time}`
+		
+		let mapPin = document.getElementById(e)
+		console.log(mapPin)
+		mapPin.setAttribute('title', info)
+	}
+	
+	
+	function getWorldTime(tzOffset) { // 24시간제
+		var now = new Date();
+		var tz = now.getTime() + (now.getTimezoneOffset() * 60000) + (tzOffset * 3600000);
+		now.setTime(tz);
+
+		var s = leadingZeros(now.getFullYear(), 4) +
+			'-' + leadingZeros(now.getMonth() + 1, 2) +
+			'-' + leadingZeros(now.getDate(), 2) +
+			' ' + leadingZeros(now.getHours(), 2) +
+			':' + leadingZeros(now.getMinutes(), 2) +
+			':' + leadingZeros(now.getSeconds(), 2);
+
+		return s;
+	}
+	function leadingZeros(n, digits) {
+		var zero = '';
+		n = n.toString();
+
+		if (n.length < digits) {
+			for (i = 0; i < digits - n.length; i++) zero += '0';
+		}
+		return zero + n;
+	}
+	 
+	
+	
+</script>
+
+
+</head>
+<body>
+	<div class="worldMap">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseover="mapInfo(this.id)" id="korea">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseover="mapInfo(this.id)" id="china">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseover="mapInfo(this.id)" id="russia">
+	</div>
+	
+</body>
+</html>
