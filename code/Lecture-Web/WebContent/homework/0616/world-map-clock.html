@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="/Lecture-Web/jquery/js/jquery-ui.min.css"></script>
+<script src="/Lecture-Web/jquery/js/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+	.worldMap{
+		background-image: url(./World_Map.svg);
+		width: 1500px;
+		height: 800px;
+	}
+	
+	img[src='Maps-Location-icon.png']{
+		width:50px; 
+		height:50px;
+		color: pink;
+	}
+	#korea{
+		position: relative;
+		top: 480px;
+		left: 660px;
+	}
+	#china{
+		position: relative;
+		top: 500px;
+		left: 500px;
+	}
+	#russia{
+		position: relative;
+		top: 300px;
+		left: 450px;
+	}
+	
+</style>
+<script>
+	$( function() {
+    	$( ".mapPin" ).tooltip({
+	      show: {
+	      	effect: "slideDown",
+	        delay: 250
+	      }
+    	})
+	})
+    	
+	function mapInfo(e) {
+		
+		// 시간 구하기
+		let time = {
+				'korea' : getWorldTime(+9),
+				'china' : getWorldTime(+8),
+				'russia' : getWorldTime(+3)
+		}
+		
+		/*
+		switch (e) {
+		case 'korea':
+			time = getWorldTime(+9)
+			break;
+		case 'china':
+			time = getWorldTime(+8)
+			break;
+		case 'russia':
+			time = getWorldTime(+3)
+			break;
+		}
+		*/
+		
+		// 툴팁에 정보 출력
+		let info = `${e} \n ${time[e]}`
+		
+		let mapPin = document.getElementById(e)
+		mapPin.setAttribute('title', info)
+	}
+	
+	
+	// 세계 시간 구하긴
+	function getWorldTime(tzOffset) { // 24시간제
+		let now = new Date();
+		let tz = now.getTime() + (now.getTimezoneOffset() * 60000) + (tzOffset * 3600000);
+		now.setTime(tz);
+
+		let s = leadingZeros(now.getFullYear(), 4) +
+			'-' + leadingZeros(now.getMonth() + 1, 2) +
+			'-' + leadingZeros(now.getDate(), 2) +
+			' ' + leadingZeros(now.getHours(), 2) +
+			':' + leadingZeros(now.getMinutes(), 2) +
+			':' + leadingZeros(now.getSeconds(), 2);
+
+		return s;
+	}
+	function leadingZeros(n, digits) {
+		let zero = '';
+		n = n.toString();
+
+		if (n.length < digits) {
+			for (i = 0; i < digits - n.length; i++) zero += '0';
+		}
+		return zero + n;
+	}
+	
+	function zoomIn(event){
+		event.target.style.transform = "scale(1.2)"
+		event.target.style.zIndex = 1
+		event.target.style.transition = "all 0.5s"
+	}
+	function zoomOut(event){
+		event.target.style.transform = "scale(1)"
+		event.target.style.zIndex = 0
+		event.target.style.transition = "all 0.5s"
+	}
+	
+	
+</script>
+
+
+</head>
+<body>
+	<div class="worldMap">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" onmouseover="mapInfo(this.id)" id="korea">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" onmouseover="mapInfo(this.id)" id="china">
+		<img src="Maps-Location-icon.png" class="mapPin" onmouseenter="zoomIn(event)" onmouseleave="zoomOut(event)" onmouseover="mapInfo(this.id)" id="russia">
+	</div>
+	
+</body>
+</html>

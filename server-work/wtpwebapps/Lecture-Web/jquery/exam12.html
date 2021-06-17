@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+	$(document).ready(function(){
+		
+		/* 태그의 내용을 뽑아내는 방법 : getter */
+		
+		/* 1. 자바스크립트 방법 : innerHTML, innerText */
+		
+		let pTags = document.getElementsByTagName('p')
+		//alert(pTags[0].innerHTML) // 안의 태그까지 다 추출되는 방법
+		//alert(pTags[0].innerText) // 안의 태그빼고 문자열만 추출되는 방법
+		
+		/* 2. 제이쿼리 방법 */
+		let html = $('p').html() // p 태그가 2개 이상일때 하나만 출력됨
+		let text = $('p').text() // p 태그가 2개일때 전부 다 출력됨
+		//alert(html)
+		//alert(text)
+		
+		/* input된 내용 뽑아내는 방법 */
+		$('button').click(function(){
+			/* 1. 자바스크립트 방법 */
+			//let inputTag = document.getElementById("name")
+			//let name = inputTag.value
+			//console.log(name)
+			
+			/* 2. 제이쿼리 방법 */
+			let name = $('#name').val()
+			console.log(name)
+		})
+		
+		
+		/* a태그의 href 속성값 뽑아내기 */
+		let addr = $('a').attr('href')
+		console.log(addr)
+	})
+</script>
+</head>
+<body>
+	<p>내 이름은 <strong>홍길동</strong>이고, 별명은 <em>의적</em>입니다.</p>
+	<p>내 이름은 <strong>김미미</strong>이고, 별명은 <em>도적</em>입니다.</p>
+	이름 : <input type = "text" id = "name">
+	<button>입력완료</button>
+	<a href="http://www.naver.com">네이버</a>
+</body>
+</html>

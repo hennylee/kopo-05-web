@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+</style>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+	$(document).ready(function() {
+
+		/* fadeToggle */
+		$('div').fadeToggle(1000)
+		$('div').fadeToggle(1000)
+
+		/* fadeTo : 투명도 조절*/
+		$('div').fadeTo(1000, 0.5)
+		
+		/* fadeout : 투명도 none */
+		$('div').fadeOut(1000)
+		$('div').fadeIn(1000)
+
+		/* hide & show : left-top 으로 숨겼다 나타나기 */
+		$('div').hide(1000)
+		$('div').show(1000)
+		
+		/* toggle = hide + show */
+		$('div').toggle(1000)
+		$('div').toggle(1000)
+		
+	})
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>
