@@ -3,35 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	.textControl{
+		margin: 10px;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+	
+	$(document).ready(function(){
+		
+		// textarea에 쓴 글자 알아내기
+		$('textarea').keyup(function(){
+			let textArea = $(this).val()
+			console.log(textArea)
+		})
+		
+		$('textarea').select(function(e){
+			let selection = document.getSelection().text()
+			console(selection)
+		})
+		
+			
+		function selectText() {
+			text = document.getSelection()
+		}
+	})
+	
+</script>
 </head>
 <body>
-	<div>크기
-		<select name="fontSize">
-			<option value="none">크기선택</option>		
-			<option value="1">1</option>		
-		</select>
+	<div class="textControl">
+		<div>크기
+			<select id="fontSize">
+				<option value="none">크기선택</option>		
+				<option value="1">1</option>		
+				<option value="2">2</option>		
+			</select>
+		</div>
+		<div>폰트
+			<select id="fontType" >
+				<option value="none">폰트선택</option>		
+				<option value="nanum">나눔고딕</option>		
+			</select>
+		</div>
+		<div>글자효과
+			<button><strong>가</strong></button>
+			<button><em>가</em></button>
+			<button><strike>가</strike></button>
+			<button><u>가</u></button>
+			<input type="color">
+		</div>
+		<div>정렬
+			<button>왼쪽정렬</button>
+			<button>가운데정렬</button>
+			<button>오른쪽정렬</button>
+		</div>
 	</div>
-	<div>폰트
-		<select name="fontType">
-			<option value="none">폰트선택</option>		
-			<option value="nanum">나눔고딕</option>		
-		</select>
-	</div>
-	<div>글자효과
-		<button><strong>가</strong></button>
-		<button><em>가</em></button>
-		<button><strike>가</strike></button>
-		<button><u>가</u></button>
-		<input type="color">
-	</div>
-	<div>정렬
-		<button>왼쪽정렬</button>
-		<button>가운데정렬</button>
-		<button>오른쪽정렬</button>
-	</div>
-	<div>
-	
-		<input type="">
+		
+	<div class="textEdit">
+		<textarea cols="150" rows="30"></textarea>
 	</div>
 	
 </body>
