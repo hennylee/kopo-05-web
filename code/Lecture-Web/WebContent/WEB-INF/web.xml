@@ -36,11 +36,20 @@
 
   <servlet>
   	<servlet-name>table</servlet-name>
-  	<servlet-class>kr.ac.kopo.servlet.TableServlet</servlet-class>
+  	<servlet-class>kr.ac.kopo.servlet.homework.TableServlet</servlet-class>
   </servlet>
   <servlet-mapping>
   	<servlet-name>table</servlet-name>
   	<url-pattern>/servlet/table</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>homework</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.HomeworkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>homework</servlet-name>
+  	<url-pattern>/pinfoResult</url-pattern>
   </servlet-mapping>
 
   
