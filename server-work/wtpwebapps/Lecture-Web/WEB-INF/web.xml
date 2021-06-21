@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>Lecture-Web</display-name>
+  
   <servlet>
   	<servlet-name>hello</servlet-name>
   	<servlet-class>kr.ac.kopo.servlet.HelloServlet</servlet-class>
@@ -20,8 +21,6 @@
   
   
   
-  
-  
   <servlet>
   	<servlet-name>method</servlet-name>
   	<servlet-class>kr.ac.kopo.servlet.MethodServlet</servlet-class>
@@ -33,7 +32,17 @@
   	<url-pattern>/method</url-pattern>
   	<!-- form태그 action에서 form action="/Lecture-Web/method" 이렇게 요청했으니까, /method가 받아야 함 -->
   </servlet-mapping>
-  
+
+
+  <servlet>
+  	<servlet-name>table</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.TableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>table</servlet-name>
+  	<url-pattern>/servlet/table</url-pattern>
+  </servlet-mapping>
+
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
