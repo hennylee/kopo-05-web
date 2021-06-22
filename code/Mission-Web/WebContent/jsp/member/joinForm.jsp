@@ -8,30 +8,29 @@
 <script src = "/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-	$(document).ready(function(){
+	
+	/* 왜 실행 안되는지 알고 싶음!!! */
+	function checkForm(){
 		
-		function checkForm(){
-			
-			if($('#tel2').length > 4){
-				alert('4글자 이내로 입력해주세요')
-				return false
-			}
-			
-			
-			if($('#tel3').length > 4){
-				alert('4글자 이내로 입력해주세요')
-				return false
-			}
-			
-			return true
+		if($('#tel2').length > 4){
+			alert('4글자 이내로 입력해주세요')
+			return false
 		}
 		
-		function doubleCheck() {
-			window.open('doubleCheck.jsp')
-			
+		
+		if($('#tel3').length > 4){
+			alert('4글자 이내로 입력해주세요')
+			return false
 		}
 		
-	})
+		return true
+	}
+		
+		
+	function doubleCheck() {
+		let options = 'top=10, left=10, width=500, height=600, resizable=no';
+		window.open('doubleCheck.jsp', '중복체크' ,'width=500px, height=600px')
+	}
 	
 	function sample6_execDaumPostcode() {
         new daum.Postcode({

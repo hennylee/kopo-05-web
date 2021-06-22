@@ -36,8 +36,13 @@
 <body>
 	<div align="center">
 		<hr width="80%">
-		<h2>게시판 상세</h2>
+		<h2>중복 체크</h2>
 		<hr width="80%">
+		중복된 아이디가 있습니다.
+		<br><br>
+		<input type="button" value="취소" onclick="window.close()">
+		<input type="button" value="중복체크">
+		
 	</div>
 </body>
 </html>
