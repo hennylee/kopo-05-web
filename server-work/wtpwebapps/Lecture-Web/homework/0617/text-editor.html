@@ -7,62 +7,108 @@
 	.textControl{
 		margin: 10px;
 	}
+	.content{
+		border: 1px solid black;
+		width : 800px;
+		height: 600px;
+	}
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
 	
 	$(document).ready(function(){
 		
-		// textarea에 쓴 글자 알아내기
-		$('textarea').keyup(function(){
-			let textArea = $(this).val()
-			console.log(textArea)
+		$('#fontSize').change(function(){
+			document.execCommand('fontSize',false, $(this).val())
 		})
 		
-		$('textarea').select(function(e){
-			let selection = document.getSelection().text()
-			console(selection)
+		$('#fontColor').change(function(){
+			document.execCommand('ForeColor',  false, $(this).val())
 		})
 		
-			
-		function selectText() {
-			text = document.getSelection()
-		}
+		$('#fontName').change(function(){
+			document.execCommand('fontName',  false, $(this).val())
+			console.log($(this).val())
+		})
+		
+		$('#fontBold').click(function(){
+			document.execCommand('bold')
+		})
+		$('#fontItalic').click(function(){
+			document.execCommand('Italic')
+		})
+		$('#fontStrike').click(function(){
+			document.execCommand('StrikeThrough')
+		})
+		
+		
+		$('#fontUnderline').click(function(){
+			document.execCommand('Underline')
+		})
+		
+		$('#fontJustify').click(function(){
+			document.execCommand('fontJustify')
+		})
+		
+		
+		$('#fontJustify').children('button').click(function(){
+			document.execCommand($(this).val())
+			console.log($(this).val())
+		})
+		
 	})
 	
 </script>
 </head>
 <body>
 	<div class="textControl">
+	
 		<div>크기
 			<select id="fontSize">
 				<option value="none">크기선택</option>		
 				<option value="1">1</option>		
 				<option value="2">2</option>		
+				<option value="3">3</option>		
+				<option value="4">4</option>		
+				<option value="5">5</option>		
+				<option value="6">6</option>		
+				<option value="7">7</option>		
 			</select>
 		</div>
+		
 		<div>폰트
-			<select id="fontType" >
+			<select id="fontName">
 				<option value="none">폰트선택</option>		
-				<option value="nanum">나눔고딕</option>		
+				<option value="궁서">궁서</option>		
+				<option value="궁서체">궁서체</option>		
+				<option value="굴림">굴림</option>		
+				<option value="굴림체">굴림체</option>		
+				<option value="돋움">돋움</option>		
+				<option value="돋움체">돋움체</option>		
+				<option value="맑은 고딕">맑은 고딕</option>		
+				<option value="바탕">바탕</option>		
+				<option value="바탕체">바탕체</option>		
 			</select>
 		</div>
+		
 		<div>글자효과
-			<button><strong>가</strong></button>
-			<button><em>가</em></button>
-			<button><strike>가</strike></button>
-			<button><u>가</u></button>
-			<input type="color">
+			<button id="fontBold"><strong>가</strong></button>
+			<button id="fontItalic"><em>가</em></button>
+			<button id="fontStrike"><strike>가</strike></button>
+			<button id="fontUnderline"><u>가</u></button>
+			
+			<input type="color" id = "fontColor">
 		</div>
-		<div>정렬
-			<button>왼쪽정렬</button>
-			<button>가운데정렬</button>
-			<button>오른쪽정렬</button>
+		
+		<div id="fontJustify">정렬
+			<button value="justifyleft">왼쪽정렬</button>
+			<button value="justifycenter">가운데정렬</button>
+			<button value="justifyright">오른쪽정렬</button>
 		</div>
 	</div>
 		
-	<div class="textEdit">
-		<textarea cols="150" rows="30"></textarea>
+	<div>
+		<div class="content" contenteditable="true"></div>
 	</div>
 	
 </body>

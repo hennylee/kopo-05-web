@@ -22,12 +22,9 @@ public class HomeworkServlet extends HttpServlet {
 		String pwd = requset.getParameter("pwd");
 		String sex = requset.getParameter("sex");
 		String[] mails = requset.getParameterValues("mail");
+		
 		String job = requset.getParameter("job");
 		
-		String[] mailCheck = {"받음", "받지 않음"};
-		String notice = mailCheck[1];
-		String ad = mailCheck[1];
-		String delivery = mailCheck[1]; 
 		
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
@@ -48,7 +45,15 @@ public class HomeworkServlet extends HttpServlet {
 		sb.append("성별 : " + sex + "<br>");
 		
 		
+		String[] mailType = {"공지", "광고", "배송"};
+		String[] mailCheck = {"받음", "받지 않음"};
+		
+		String notice = mailCheck[1];
+		String ad = mailCheck[1];
+		String delivery = mailCheck[1]; 
+		
 		for(String mail : mails) {
+			
 			switch (mail) {
 			case "공지":
 				notice = mailCheck[0];

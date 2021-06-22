@@ -21,14 +21,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#addBtn').click(function(){
+		location.href = "writeForm.jsp" // location 객체는 url 정보를 가지고 있음
+	})
+})
+</script>
 </head>
 <body>
 	<div align="center">
 	<hr width="80%">
 	<h2>게시판 목록</h2>
 	<hr width="80%">
-	
 	<br>
+	
 	<table border = "1" style="width : 80%">
 		<tr>
 			<th width = "7%">번호</th>
@@ -54,6 +62,8 @@
 			}
 		%>
 	</table>
+	<br>
+	<button id="addBtn">새글등록</button>
 	</div>
 </body>
 </html>
