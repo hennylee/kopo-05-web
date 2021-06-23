@@ -25,6 +25,22 @@
 	
 	ResultSet rs = pstmt.executeQuery();
 	rs.next();
+	
+	// db결과 변수로 받기
+	int no = rs.getInt("no");
+	String title = rs.getString("title");
+	String writer = rs.getString("writer");
+	String content = rs.getString("content");
+	int viewCnt = rs.getInt("view_cnt");
+	String regDate = rs.getString("reg_date");
+	
+	// 변수 공유영역에 올리기
+	pageContext.setAttribute("no", no);
+	pageContext.setAttribute("title", title);
+	pageContext.setAttribute("writer", writer);
+	pageContext.setAttribute("content", content);
+	pageContext.setAttribute("viewCnt", viewCnt);
+	pageContext.setAttribute("regDate", regDate);
 %>
 <!DOCTYPE html>
 <html>
@@ -41,27 +57,27 @@
 		<table border = "1" style="width:80%;">
 			<tr>
 				<th width="25%">번호</th>
-				<td><%= rs.getInt("no") %></td>
+				<td>${ no }</td>
 			</tr>
 			<tr>
 				<th width="25%">제목</th>
-				<td><%= rs.getString("title") %></td>
+				<td>${ title }</td>
 			</tr>
 			<tr>
 				<th width="25%">작성자</th>
-				<td><%= rs.getString("writer") %></td>
+				<td>${ writer }</td>
 			</tr>
 			<tr>
 				<th width="25%">내용</th>
-				<td><%= rs.getString("content") %></td>
+				<td>${ content }</td>
 			</tr>
 			<tr>
 				<th width="25%">조회수</th>
-				<td><%= rs.getInt("view_cnt") %></td>
+				<td>${ viewCnt }</td>
 			</tr>
 			<tr>
 				<th width="25%">등록일</th>
-				<td><%= rs.getString("reg_date") %></td>
+				<td>${ regDate }</td>
 			</tr>
 		</table>
 		
