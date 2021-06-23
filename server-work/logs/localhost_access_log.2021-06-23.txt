@@ -369,3 +369,5 @@
 0:0:0:0:0:0:0:1 - - [23/Jun/2021:16:44:38 +0900] "GET /Lecture-Web/jsp/jstl/core/chooseTagExam.jsp HTTP/1.1" 200 193
 0:0:0:0:0:0:0:1 - - [23/Jun/2021:16:44:46 +0900] "GET /Lecture-Web/jsp/jstl/core/chooseTagExam.jsp?type=U HTTP/1.1" 200 190
 0:0:0:0:0:0:0:1 - - [23/Jun/2021:16:44:51 +0900] "GET /Lecture-Web/jsp/jstl/core/chooseTagExam.jsp?type=S HTTP/1.1" 200 184
+0:0:0:0:0:0:0:1 - - [23/Jun/2021:16:56:47 +0900] "GET /Mission-Web/jsp/board/detail.jsp HTTP/1.1" 500 2634
+0:0:0:0:0:0:0:1 - - [23/Jun/2021:16:56:53 +0900] "GET /Mission-Web/jsp/board/detail.jsp?no=1 HTTP/1.1" 200 765

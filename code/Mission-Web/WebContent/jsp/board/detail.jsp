@@ -57,27 +57,27 @@
 		<table border = "1" style="width:80%;">
 			<tr>
 				<th width="25%">번호</th>
-				<td>${ no }</td>
+				<td>${ board.no }</td>
 			</tr>
 			<tr>
 				<th width="25%">제목</th>
-				<td>${ title }</td>
+				<td>${ board.title }</td>
 			</tr>
 			<tr>
 				<th width="25%">작성자</th>
-				<td>${ writer }</td>
+				<td>${ board.writer }</td>
 			</tr>
 			<tr>
 				<th width="25%">내용</th>
-				<td>${ content }</td>
+				<td>${ board.content }</td>
 			</tr>
 			<tr>
 				<th width="25%">조회수</th>
-				<td>${ viewCnt }</td>
+				<td>${ board.viewCnt }</td>
 			</tr>
 			<tr>
 				<th width="25%">등록일</th>
-				<td>${ regDate }</td>
+				<td>${ board.regDate }</td>
 			</tr>
 		</table>
 		
