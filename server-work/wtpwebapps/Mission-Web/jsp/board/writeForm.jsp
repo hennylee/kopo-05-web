@@ -12,6 +12,32 @@
 			location.href = "list.jsp"
 		})
 	})
+	
+	
+	function doWrite() {
+		
+		let f = document.writeForm
+		
+		if(f.title.value == ''){
+			alert('제목을 입력하세요')
+			f.title.focus()
+			return false
+		}
+		
+		if(f.writer.value == ''){
+			alert('작성자를 입력하세요')
+			f.writer.focus()
+			return false
+		}
+		
+		if(f.content.value == ''){
+			alert('내용을 입력하세요')
+			f.content.focus()
+			return false
+		}
+		
+		return true
+	}
 
 </script>
 </head>
@@ -21,7 +47,7 @@
 		<h2>게시글 등록폼</h2>
 		<hr width="80%">	
 		
-		<form action="write.jsp" method="post">
+		<form action="write.jsp" method="post" name ="writeForm" onsubmit="return doWrite()">
 			<table border = "1" style="width:80%">
 				<tr>
 					<th width="25%">제목</th>

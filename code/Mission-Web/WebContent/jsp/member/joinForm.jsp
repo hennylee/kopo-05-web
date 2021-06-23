@@ -23,13 +23,55 @@
 			return false
 		}
 		
+		// 아이디 중복체크
+		
+		// 비밀번호 확인
+		
 		return true
 	}
 		
 		
-	function doubleCheck() {
+	function idDoubleCheck(e) {
+		let id = $('#id').val()
+		
+		console.log(e)
+		
+		if(id == ""){
+			alert('id를 입력하세요')
+			return
+		}
+		
+		let url = 'doubleCheck.jsp?id='+id
 		let options = 'top=10, left=10, width=500, height=600, resizable=no';
-		window.open('doubleCheck.jsp', '중복체크' ,'width=500px, height=600px')
+		
+		window.open(url, '중복체크' , options)
+	}
+	function pwdDoubleCheck(e) {
+		// 아이디 입력체크 
+		let f = document.inputForm
+		
+		// 아이디 중복체크
+		if(f.password.value != f.passwordCheck.value){
+			alert('패스워드가 서로 다릅니다.')
+			return false
+		}
+        
+	}
+	
+	function pwdDoubleCheck(e) {
+		let id = $('#id').val()
+		
+		console.log(e)
+		
+		if(id == ""){
+			alert('id를 입력하세요')
+			return
+		}
+		
+		let url = 'doubleCheck.jsp?id='+id
+		let options = 'top=10, left=10, width=500, height=600, resizable=no';
+		
+		window.open(url, '중복체크' , options)
 	}
 	
 	function sample6_execDaumPostcode() {
@@ -88,13 +130,13 @@
 		<h2>회원 가입</h2>
 		<hr width="80%">
 		
-		<form action="join.jsp" method="post" onsubmit="return checkForm()">
+		<form action="join.jsp" method="post" name="inputForm" onsubmit="return checkForm()">
 			<table border="1" style="width: 60%">
 				<tr>
 					<th>아이디</th>
 					<td>
-						<input type="text" name="id" required>
-						<button onclick="doubleCheck()">중복체크</button>
+						<input type="text" name="id" id ="id" required>
+						<button onclick="idDoubleCheck(this)">중복체크</button>
 					</td>
 				</tr>
 				<tr>
@@ -107,6 +149,13 @@
 					<th>비밀번호</th>
 					<td>
 						<input type="password" name="password" required>
+					</td>
+				</tr>
+				<tr>
+					<th>비밀번호 확인</th>
+					<td>
+						<input type="password" name="passwordCheck" required>
+						<button onclick="pwdDoubleCheck(this)">중복체크</button>
 					</td>
 				</tr>
 				<tr>

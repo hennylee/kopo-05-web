@@ -18,6 +18,7 @@
 	
 	rs.next();
 	int cnt = rs.getInt(1);
+	
 %>
 
 <!DOCTYPE html>
@@ -26,23 +27,24 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src= "/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
-<script>
-	$(document).ready(fucntion(){
-		if()
-	})
-	
-</script>
 </head>
 <body>
 	<div align="center">
 		<hr width="80%">
 		<h2>중복 체크</h2>
 		<hr width="80%">
-		중복된 아이디가 있습니다.
+		<div id="msg">
+			<% 
+				if(cnt == 1) {
+					out.println("중복된 id가 존재합니다.");
+				}
+				else{
+					out.println("사용 가능한 id입니다.");
+				}
+			%>
+		</div>
 		<br><br>
-		<input type="button" value="취소" onclick="window.close()">
-		<input type="button" value="중복체크">
-		
+		<input type="button" value="확인" onclick="window.close()">
 	</div>
 </body>
 </html>

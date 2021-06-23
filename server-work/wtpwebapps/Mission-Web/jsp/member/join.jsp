@@ -43,7 +43,11 @@
 	pstmt.setString(10, basic_addr);
 	pstmt.setString(11, detail_addr);
 	
-	pstmt.executeUpdate();
+	try{
+		pstmt.executeUpdate();
+	}catch(Exception e){
+		
+	}
 	
 	JDBCClose.close(conn, pstmt);
 	
