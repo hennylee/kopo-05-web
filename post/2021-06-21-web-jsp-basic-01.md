@@ -100,6 +100,7 @@
 
 - `ctrl + shift + o` 단축키 대신 `ctrl + space`를 활용해야 자동으로 import된다. 
 
+- 지시자는 크게 `페이지`, `태그라이브러리`, `include`의 세 가지로 사용된다.
 
 
 ## enum 
