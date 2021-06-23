@@ -1,3 +1,4 @@
+<%@page import="kr.ac.kopo.board.vo.BoardVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.ac.kopo.util.ConnectionFactory"%>
@@ -34,13 +35,12 @@
 	int viewCnt = rs.getInt("view_cnt");
 	String regDate = rs.getString("reg_date");
 	
+	// 자바빈즈 클래스로 만들기
+	BoardVO board = new BoardVO(no, title, writer, content, viewCnt, regDate);
+	
 	// 변수 공유영역에 올리기
-	pageContext.setAttribute("no", no);
-	pageContext.setAttribute("title", title);
-	pageContext.setAttribute("writer", writer);
-	pageContext.setAttribute("content", content);
-	pageContext.setAttribute("viewCnt", viewCnt);
-	pageContext.setAttribute("regDate", regDate);
+	pageContext.setAttribute("board", board);
+	
 %>
 <!DOCTYPE html>
 <html>
