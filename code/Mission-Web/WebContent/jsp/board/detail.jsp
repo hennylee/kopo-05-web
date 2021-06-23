@@ -1,3 +1,4 @@
+<%@page import="kr.ac.kopo.util.JDBCClose"%>
 <%@page import="kr.ac.kopo.board.vo.BoardVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -34,6 +35,8 @@
 	String content = rs.getString("content");
 	int viewCnt = rs.getInt("view_cnt");
 	String regDate = rs.getString("reg_date");
+
+	JDBCClose.close(conn, pstmt);
 	
 	// 자바빈즈 클래스로 만들기
 	BoardVO board = new BoardVO(no, title, writer, content, viewCnt, regDate);
