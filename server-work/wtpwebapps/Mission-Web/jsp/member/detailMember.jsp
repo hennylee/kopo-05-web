@@ -1,3 +1,4 @@
+<%@page import="kr.ac.kopo.util.JDBCClose"%>
 <%@page import="kr.ac.kopo.board.vo.MemberVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -33,6 +34,8 @@
 	String post = rs.getString("post");
 	String basicAddr = rs.getString("basic_addr");
 	String detailAddr = rs.getString("detail_addr");
+	
+	JDBCClose.close(conn, pstmt);
 	
 	MemberVO member = new MemberVO(id, name, password, emailId, emailDomain, tel1,tel2, tel3, post, basicAddr, detailAddr);
 	
