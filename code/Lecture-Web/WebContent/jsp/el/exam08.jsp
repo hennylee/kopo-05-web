@@ -41,11 +41,6 @@
 	//pageContext.setAttribute("boardList", boardList2);
 	
 	
-	/* 5. 자바빈즈 + map ????????????? 왜 실패????????????????? */
-	Map<Integer, BoardVO> map = new HashMap<>();
-	map.put(0, vo);
-	
-	pageContext.setAttribute("boardList", map);
 	
 %>
 <!DOCTYPE html>
@@ -56,7 +51,7 @@
 </head>
 <body>
 	<!-- 성공이 출력되는 코드 작성하기 -->
-	성공/실패? ${ boardList[0] }<br>
 	성공/실패? ${ boardList[0].title }<br>
+	
 </body>
 </html>
