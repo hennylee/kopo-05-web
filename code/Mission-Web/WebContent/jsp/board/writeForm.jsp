@@ -12,8 +12,7 @@
 			location.href = "list.jsp"
 		})
 	})
-	
-	
+
 	function doWrite() {
 		
 		let f = document.writeForm

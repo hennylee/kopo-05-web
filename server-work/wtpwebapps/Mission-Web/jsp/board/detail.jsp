@@ -51,14 +51,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 </head>
 <body>
-	<div align="center">
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
+	
+	<section>
+		<div align="center">
 		<hr width="80%">
 		<h2>게시판 상세</h2>
 		<hr width="80%">
 		
-		<table border = "1" style="width:80%;">
+		<table style="width:100%;">
 			<tr>
 				<th width="25%">번호</th>
 				<td><c:out value="${ board.no }"/></td>
@@ -86,5 +93,17 @@
 		</table>
 		
 	</div>
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
 </body>
 </html>
+
+
+
+
+
+
+

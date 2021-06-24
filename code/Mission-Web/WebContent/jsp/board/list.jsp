@@ -48,6 +48,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 <script src="/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -58,21 +60,26 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-	<div align="center">
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
+	
+	<section>
+		<div align="center">
 	<hr width="80%">
 	<h2>게시판 목록</h2>
 	<hr width="80%">
 	<br>
 	
-	<table border = "1" style="width : 80%">
+	<table style="width : 100%" class="list">
 		<tr>
 			<th width = "7%">번호</th>
 			<th>제목</th>
 			<th width = "16%">작성자</th>
 			<th width = "20%">등록일</th>
 		</tr>
-		<c:forEach items="${list }" var="board" >
-			<tr>
+		<c:forEach items="${list }" var="board" varStatus="loop">
+			<tr <c:if test="${loop.index mod 2 ne 0 }"> class = "odd"</c:if> >
 				<td>${board.no }</td> <%-- board.no는 list[index].no 와 같다 --%>
 				<td>
 					<a href="detail.jsp?no=${board.no }">
@@ -94,5 +101,11 @@ $(document).ready(function(){
 	<br>
 	<button id="addBtn">새글등록</button>
 	</div>
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
 </body>
 </html>
+
