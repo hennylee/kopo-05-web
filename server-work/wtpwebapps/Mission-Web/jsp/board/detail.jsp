@@ -6,6 +6,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
 	http://localhost:9999/Mission-Web/jsp/board/detail.jsp?no=1 
 --%>
@@ -60,27 +61,27 @@
 		<table border = "1" style="width:80%;">
 			<tr>
 				<th width="25%">번호</th>
-				<td>${ board.no }</td>
+				<td><c:out value="${ board.no }"/></td>
 			</tr>
 			<tr>
 				<th width="25%">제목</th>
-				<td>${ board.title }</td>
+				<td><c:out value="${ board.title }"/></td>
 			</tr>
 			<tr>
 				<th width="25%">작성자</th>
-				<td>${ board.writer }</td>
+				<td><c:out value="${ board.writer }"/></td>
 			</tr>
 			<tr>
 				<th width="25%">내용</th>
-				<td>${ board.content }</td>
+				<td><c:out value="${ board.content }"/></td>
 			</tr>
 			<tr>
 				<th width="25%">조회수</th>
-				<td>${ board.viewCnt }</td>
+				<td><c:out value="${ board.viewCnt }"/></td>
 			</tr>
 			<tr>
 				<th width="25%">등록일</th>
-				<td>${ board.regDate }</td>
+				<td><c:out value="${ board.regDate }"/></td>
 			</tr>
 		</table>
 		
