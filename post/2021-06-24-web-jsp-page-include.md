@@ -111,9 +111,42 @@ out.write("	<h2>인클루드 후</h2>\r\n");
 
 ## 지시자와 액션 방식의 차이점
 
+- 공통점  : 지시자와 액션 방식의 include는 내 서버에 있는 파일만 include가능하다.
+
+
 |항목 |액션 |지시자|
-|------|--------|-----------|
+|:------:|--------|-----------|
 |처리시간 |실행 시 결과 처리 |JSP 파일을 자바 소스로 변환할때 처리|
 |데이터 전달방법|공유영역 설정을 통한 방식|호출 페이지에 변수를 통한 공유
 |||페이지 호출 시 파라미터 설정 |
 |용도 |화면의 일부분을 모듈화| 페이지 공통 사용 변수|
+
+
+
+## JSTL - import 
+
+- 지시자와 액션 방식의 include는 내 서버에 있는 파일만 include가능했지만, 다른 서버의 실행 결과를 내 페이지로 포함시킬 수 있다. 
+
+- JSTL core 태그의 일종이다. 
+
+- 구문 : 
+
+```jsp
+<c:import url = "파일경로" />
+<c:import url =“파일경로”>
+<c:param name=“msg” value=“test” />
+</c:import>
+```
+
+- 액션 include처럼, 실행 시 jstl 태그 라이브러리에 가서 url을 받아온다.
+
+```java
+out.write("	<h2>인클루드 전</h2>\r\n");
+out.write("\r\n");
+out.write("	");
+if (_jspx_meth_c_005fimport_005f0(_jspx_page_context))
+  return;
+out.write("\r\n");
+out.write("	<h2>인클루드 후</h2>\r\n");
+```
+
