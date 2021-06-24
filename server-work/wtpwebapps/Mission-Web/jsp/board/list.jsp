@@ -66,41 +66,43 @@ $(document).ready(function(){
 	
 	<section>
 		<div align="center">
-	<hr width="80%">
-	<h2>게시판 목록</h2>
-	<hr width="80%">
-	<br>
-	
-	<table style="width : 100%" class="list">
-		<tr>
-			<th width = "7%">번호</th>
-			<th>제목</th>
-			<th width = "16%">작성자</th>
-			<th width = "20%">등록일</th>
-		</tr>
-		<c:forEach items="${list }" var="board" varStatus="loop">
-			<tr <c:if test="${loop.index mod 2 ne 0 }"> class = "odd"</c:if> >
-				<td>${board.no }</td> <%-- board.no는 list[index].no 와 같다 --%>
-				<td>
-					<a href="detail.jsp?no=${board.no }">
-					<%-- 
-						코드링크를 악성코드 링크로 변환시키지 않는 방법 
-							- out태그를 활용한다.
-							- out태그의 ecscapeXml 속성을 통해 링크를 문자열로 변환시키게 되기 때문에 
-							악성링크를 방지할 수 있는 것이다. 
-					--%>
-						<c:out value="${board.title }"/>
-					
-					</a>
-				</td>
-				<td>${board.writer }</td>
-				<td>${board.regDate }</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<br>
-	<button id="addBtn">새글등록</button>
-	</div>
+			<hr width="100%">
+			<h2>게시판 목록</h2>
+			<hr width="100%">
+			<br>
+			
+			<table style="width : 100%" class="list">
+				<tr>
+					<th width = "7%">번호</th>
+					<th>제목</th>
+					<th width = "16%">작성자</th>
+					<th width = "20%">등록일</th>
+				</tr>
+				<c:forEach items="${list }" var="board" varStatus="loop">
+					<tr <c:if test="${loop.index mod 2 ne 0 }"> class = "odd"</c:if> >
+						<td>${board.no }</td> <%-- board.no는 list[index].no 와 같다 --%>
+						<td>
+							<a href="detail.jsp?no=${board.no }">
+							<%-- 
+								코드링크를 악성코드 링크로 변환시키지 않는 방법 
+									- out태그를 활용한다.
+									- out태그의 ecscapeXml 속성을 통해 링크를 문자열로 변환시키게 되기 때문에 
+									악성링크를 방지할 수 있는 것이다. 
+							--%>
+								<c:out value="${board.title }"/>
+							
+							</a>
+						</td>
+						<td>${board.writer }</td>
+						<td>${board.regDate }</td>
+					</tr>
+				</c:forEach>
+			</table>
+			<br>
+			<div class="bottonBtnZone">
+				<button id="addBtn">새글등록</button>
+			</div>
+		</div>
 	</section>
 	
 	<footer>

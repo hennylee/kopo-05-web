@@ -61,9 +61,9 @@
 	
 	<section>
 		<div align="center">
-		<hr width="80%">
+		<hr width="100%">
 		<h2>게시판 상세</h2>
-		<hr width="80%">
+		<hr width="100%">
 		
 		<table style="width:100%;">
 			<tr>
@@ -92,6 +92,11 @@
 			</tr>
 		</table>
 		
+		<br>
+		
+		<div class="bottonBtnZone">
+			<button onclick="location.href='list.jsp'">목록으로</button>
+		</div>
 	</div>
 	</section>
 	

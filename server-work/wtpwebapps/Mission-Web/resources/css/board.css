@@ -5,6 +5,7 @@ table, th, td {
 	border-collapse: collapse;
 	color: #555;
 	font-family: verdana, sans-serif;
+	margin: 1%;
 }
 
 td, th {
@@ -36,4 +37,8 @@ table.list tr:nth-child(odd) {
 */
 table.list tr:hover {
 	background-color: #FEFDCF;
+}
+
+.bottonBtnZone {
+	margin: 1%;
 }

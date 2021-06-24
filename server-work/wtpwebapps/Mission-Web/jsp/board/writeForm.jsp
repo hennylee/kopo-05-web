@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>새글등록</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
 <script type="text/javascript" src= "/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script>
 	$(document).ready(function(){
@@ -41,13 +43,20 @@
 </script>
 </head>
 <body>
+
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
+	
+	
+	<section>
 	<div align="center">
-		<hr width="80%">	
+		<hr width="100%">	
 		<h2>게시글 등록폼</h2>
-		<hr width="80%">	
+		<hr width="100%">	
 		
 		<form action="write.jsp" method="post" name ="writeForm" onsubmit="return doWrite()">
-			<table border = "1" style="width:80%">
+			<table style="width:100%" class="form">
 				<tr>
 					<th width="25%">제목</th>
 					<td>
@@ -67,9 +76,17 @@
 					</td>
 				</tr>
 			</table>
-			<input type="submit" value="등록">
-			<input type="button" value="목록" id="goListBtn">
+			<div class="bottonBtnZone">
+				<input type="submit" value="등록">
+				<input type="button" value="목록" id="goListBtn">
+			</div>
 		</form>
 	</div>
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
+	
 </body>
 </html>
