@@ -16,6 +16,7 @@ create table t_member(
 );
 
 select * from t_member;
+delete from t_member
 
 select count(*) from t_member where id = 'test01';
 

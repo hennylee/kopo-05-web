@@ -23,7 +23,6 @@
 	rs.next();
 	
 	String id = rs.getString("id");
-	System.out.print(id);
 	String name = rs.getString("name");
 	String password = rs.getString("password");
 	String emailId = rs.getString("email_id");
