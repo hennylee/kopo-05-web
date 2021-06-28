@@ -93,3 +93,23 @@
 
   - `cName = URLEncoder.encode(cName, "utf-8");`
   - `cName = URLDecoder.decode(cName, "utf-8");`
+
+
+- 쿠키의 유효시간
+
+  - 초 단위 설정 : `Cookie.setMaxAge(int maxAge)`
+  
+  - 유효시간 미 설정 시, 웹 브라우저 닫을 때 쿠키도 함께 삭제된다. 
+  
+  
+- 쿠키의 도메인
+
+
+
+- 쿠키 경로
+  - 설정된 경로를 기준으로 쿠키 전달
+  - `Cookie.setPath(String path)`
+  - 미 설정 시, 요청 URL경로에 대해서만 쿠키 전달
+  - 경로 설정 시, 설정한 경로 및 그 하위 경로에 대해서 쿠키 전송
+
+
