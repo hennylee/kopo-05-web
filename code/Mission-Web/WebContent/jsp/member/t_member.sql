@@ -1,3 +1,4 @@
+-- 회원테이블
 create table t_member(
     id varchar2(20),
     name varchar2(20) not null,
@@ -15,14 +16,19 @@ create table t_member(
     CONSTRAINT t_member_id_pk PRIMARY key(id)    
 );
 
+-- 회원전체 조회
 select * from t_member;
-delete from t_member
 
+-- 회원전체 삭제
+delete from t_member;
+
+-- ID중복체크
 select count(*) from t_member where id = 'test01';
+
 
 select * from t_member where id = 'test01';
 
-
+-- 일반회원 가입
 insert into t_member
 (id, name, password, email_id, email_domain,tel1, tel2, tel3, post, basic_addr,detail_addr) 
 values(
@@ -40,3 +46,11 @@ values(
 );
 
 commit;
+
+
+-- 관리자 회원가입
+insert into t_member(id, name, password, email_id, email_domain,tel1, tel2, tel3, post, basic_addr,detail_addr) )
+values('admin01', '관리자01', '1111', 'admin01', 'daum.net', '010', '8888', '8888','39485', '인천광역시'
+, '구리로', 'S', SYSDATE);
+
+COMMIT;

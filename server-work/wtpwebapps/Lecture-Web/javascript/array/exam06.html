@@ -21,6 +21,12 @@
 	document.write('copyNums2 : ' + copyNums2 + '<br>')
 	
 	
+	/*  
+		map과 filter의 공통점은 기존배열은 건드리지 않으면서 요소들을 순회한 후 새로운 배열을 리턴한다는 것이고, 
+		차이점은 map은 콜백함수가 적용된 새 요소, filter는 조건문을 만족한 요소들을 반환한다는 점입니다
+	*/
+	
+	
 	/* map 활용해서 100씩 더한값 깊은 복사 */
 	let copyNums3 = nums.map(function(element) {
 		return element + 100

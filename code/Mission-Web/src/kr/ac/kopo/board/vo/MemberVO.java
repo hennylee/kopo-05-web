@@ -12,9 +12,33 @@ public class MemberVO {
 	private String post;
 	private String basicAddr;
 	private String detailAddr;
+	private String type;
+	private String regDate;
 	
 	public MemberVO() {
 	}
+	
+	
+
+	public MemberVO(String id, String name, String password, String emailId, String emailDomain, String tel1,
+			String tel2, String tel3, String post, String basicAddr, String detailAddr, String type, String regDate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.emailId = emailId;
+		this.emailDomain = emailDomain;
+		this.tel1 = tel1;
+		this.tel2 = tel2;
+		this.tel3 = tel3;
+		this.post = post;
+		this.basicAddr = basicAddr;
+		this.detailAddr = detailAddr;
+		this.type = type;
+		this.regDate = regDate;
+	}
+
+
 
 	public MemberVO(String id, String name, String password, String emailId, String emailDomain, String tel1,
 			String tel2, String tel3, String post, String basicAddr, String detailAddr) {
@@ -31,6 +55,26 @@ public class MemberVO {
 		this.basicAddr = basicAddr;
 		this.detailAddr = detailAddr;
 	}
+
+	public String getRegDate() {
+		return regDate;
+	}
+
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+
+
+	public String getType() {
+		return type;
+	}
+
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 
 	public String getId() {
 		return id;
@@ -124,7 +168,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [id=" + id + ", name=" + name + ", password=" + password + ", emailId=" + emailId
 				+ ", emailDomain=" + emailDomain + ", tel1=" + tel1 + ", tel2=" + tel2 + ", tel3=" + tel3 + ", post="
-				+ post + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr + "]";
+				+ post + ", basicAddr=" + basicAddr + ", detailAddr=" + detailAddr + ", type=" + type + "]";
 	}
 	
 	
