@@ -25,6 +25,9 @@ delete from t_member;
 -- ID중복체크
 select count(*) from t_member where id = 'test01';
 
+-- 로그인
+select count(*) from t_member where id = 'test01' and password='1111';
+select * from t_member where id = 'test01' and password='';
 
 select * from t_member where id = 'test01';
 

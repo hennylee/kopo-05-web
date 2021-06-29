@@ -7,8 +7,8 @@
 			<img src="/Mission-Web/resources/images/logo.png"/>
 		</td>
 		<td align="right">
-			<c:if test="${ not empty sessionScope.member.id }">
-				안녕하세요, ${ sessionScope.member.id }님
+			<c:if test="${ not empty sessionScope.userVO }">
+				안녕하세요, [${ sessionScope.userVO.name }]님
 			</c:if>
 			<br>
 			즐겨찾기
@@ -17,16 +17,22 @@
 	<tr>
 		<td>
 			<nav>
-				회원관리 || 
+				<c:if test="${ userVO.type eq 'S' }">
+					회원관리 || 
+				</c:if>
 				<a href="/Mission-Web/jsp/board/list.jsp">게시판</a> || 
-				회원가입 || 
-				<c:if test="${ empty sessionScope.member.id }">
-					<a href="/Mission-Web/jsp/login/login.jsp">로그인</a> || 
-				</c:if>
-				마이페이지 || 
-				<c:if test="${ not empty sessionScope.member.id }">
-					<a href="/Mission-Web/jsp/login/logout.jsp">로그아웃</a> || 
-				</c:if>
+				
+				<c:choose>
+					<c:when test="${ empty sessionScope.userVO }">
+						회원가입 || 
+						<a href="/Mission-Web/jsp/login/login.jsp">로그인</a> || 
+					</c:when>
+					<c:otherwise>
+						마이페이지 || 
+						<a href="/Mission-Web/jsp/login/logout.jsp">로그아웃</a> || 
+					</c:otherwise>
+				</c:choose>
+				
 			</nav>
 		</td>
 	</tr>

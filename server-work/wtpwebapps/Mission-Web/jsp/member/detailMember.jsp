@@ -1,5 +1,5 @@
 <%@page import="kr.ac.kopo.util.JDBCClose"%>
-<%@page import="kr.ac.kopo.board.vo.MemberVO"%>
+<%@page import="kr.ac.kopo.member.vo.MemberVO"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.ac.kopo.util.ConnectionFactory"%>

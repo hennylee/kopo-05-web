@@ -9,6 +9,17 @@
 <link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 <script src="/Mission-Web/resources/js/myJS.js"></script>
 <script type="text/javascript">
+	/* 
+	forward했을때, 또는 sendRedirect했을때
+	alert를 띄우는 방법(비추)
+	
+	*/
+	window.onload = function(){
+		if('${param.msg}' != ''){
+			alert('${param.msg}')
+		}
+	} 
+
 	function checkForm(){
 		let f = document.loginForm
 		let id = f.id

@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	session.removeAttribute("member");
-	response.sendRedirect("/Mission-Web/");
+	session.removeAttribute("userVO");
+//	response.sendRedirect("/Mission-Web");
 %>
+<script>
+	alert('로그아웃되었습니다.')
+	location.href = "/Mission-Web"
+</script>

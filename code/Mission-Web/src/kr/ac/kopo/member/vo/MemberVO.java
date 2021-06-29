@@ -1,4 +1,9 @@
-package kr.ac.kopo.board.vo;
+package kr.ac.kopo.member.vo;
+
+/*enum type{
+	S("관리자"), 
+	U("일반사용자");
+}*/
 
 public class MemberVO {
 	private String id;
@@ -12,13 +17,23 @@ public class MemberVO {
 	private String post;
 	private String basicAddr;
 	private String detailAddr;
-	private String type;
+	private String type; // 'S'면 관리자, 'U'면 일반사용자
 	private String regDate;
 	
 	public MemberVO() {
 	}
 	
 	
+
+	public MemberVO(String id, String name, String password, String type) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.type = type;
+	}
+
+
 
 	public MemberVO(String id, String name, String password, String emailId, String emailDomain, String tel1,
 			String tel2, String tel3, String post, String basicAddr, String detailAddr, String type, String regDate) {
