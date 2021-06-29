@@ -4,7 +4,9 @@
 <table border="1" style="width: 100%;">
 	<tr>
 		<td rowspan="2" style="width: 235px;">
-			<img src="/Mission-Web/resources/images/logo.png"/>
+			<a href="/Mission-Web/index.jsp">
+				<img src="/Mission-Web/resources/images/logo.png"/>
+			</a>
 		</td>
 		<td align="right">
 			<c:if test="${ not empty sessionScope.userVO }">
@@ -18,13 +20,13 @@
 		<td>
 			<nav>
 				<c:if test="${ userVO.type eq 'S' }">
-					회원관리 || 
+					<a href="/Mission-Web/jsp/member/list.jsp">회원관리</a> || 
 				</c:if>
 				<a href="/Mission-Web/jsp/board/list.jsp">게시판</a> || 
 				
 				<c:choose>
 					<c:when test="${ empty sessionScope.userVO }">
-						회원가입 || 
+						<a href="/Mission-Web/jsp/member/joinForm.jsp">회원가입</a> || 
 						<a href="/Mission-Web/jsp/login/login.jsp">로그인</a> || 
 					</c:when>
 					<c:otherwise>

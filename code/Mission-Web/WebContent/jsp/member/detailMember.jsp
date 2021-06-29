@@ -93,7 +93,7 @@
 				</tr>
 			</table>
 			
-		<input type="button" value="뒤로가기" onclick="location.href='totalMemberList.jsp'">
+		<input type="button" value="뒤로가기" onclick="location.href='list.jsp'">
 		<input type="button" value="회원등록" onclick="location.href='joinForm.jsp'">
 	
 	</div>

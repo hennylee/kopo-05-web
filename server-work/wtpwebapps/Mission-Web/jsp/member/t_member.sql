@@ -57,3 +57,5 @@ values('admin01', '관리자01', '1111', 'admin01', 'daum.net', '010', '8888', '
 , '구리로', 'S', SYSDATE);
 
 COMMIT;
+
+

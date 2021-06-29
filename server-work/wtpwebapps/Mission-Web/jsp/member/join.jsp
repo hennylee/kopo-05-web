@@ -1,13 +1,12 @@
+<%@page import="kr.ac.kopo.member.dao.memberDAO"%>
+<%@page import="kr.ac.kopo.member.vo.MemberVO"%>
 <%@page import="kr.ac.kopo.util.JDBCClose"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="kr.ac.kopo.util.ConnectionFactory"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <%
-
 	request.setCharacterEncoding("utf-8");
 
 	String id = request.getParameter("id");
@@ -22,37 +21,24 @@
 	String basic_addr = request.getParameter("basic_addr");
 	String detail_addr = request.getParameter("detail_addr");
 	
-	Connection conn = new ConnectionFactory().getConnection();
+	MemberVO member = new MemberVO(id, name, password, email_id, email_domain,tel1, tel2, tel3, post, basic_addr,detail_addr);
 	
-	StringBuilder sql = new StringBuilder();
-	sql.append("insert into t_member ");
-	sql.append("(id, name, password, email_id, email_domain,tel1, tel2, tel3, post, basic_addr,detail_addr) ");
-	sql.append("values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	memberDAO dao = new memberDAO();
+	int result = dao.join(member);
 	
-	PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+	String msg = null;
 	
-	pstmt.setString(1,id );
-	pstmt.setString(2, name);
-	pstmt.setString(3, password);
-	pstmt.setString(4, email_id);
-	pstmt.setString(5, email_domain);
-	pstmt.setString(6, tel1);
-	pstmt.setString(7, tel2);
-	pstmt.setString(8, tel3);
-	pstmt.setString(9, post);
-	pstmt.setString(10, basic_addr);
-	pstmt.setString(11, detail_addr);
-	
-	try{
-		pstmt.executeUpdate();
-	}catch(Exception e){
-		
+	if(result == 0){
+		msg = "회원가입에 실패하였습니다.";
+	}
+	else {
+		msg = "회원가입에 성공하였습니다.";
 	}
 	
-	JDBCClose.close(conn, pstmt);
+	pageContext.setAttribute("msg", msg);
 	
 %>
 <script>
-	alert('회원가입이 완료되었습니다.')
-	location.href = "totalMemberList.jsp"
+	alert('${msg}')
+	location.href = "/Mission-Web/index.jsp"
 </script>

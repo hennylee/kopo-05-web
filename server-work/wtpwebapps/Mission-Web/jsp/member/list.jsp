@@ -13,6 +13,8 @@
 	PreparedStatement pstmt = conn.prepareStatement(sql);
 	
 	ResultSet rs = pstmt.executeQuery();
+	
+	
 
 %>
 <!DOCTYPE html>
@@ -20,13 +22,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 <script src="/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script>
  	$(document).ready(function(){
  		let cnt = 1
  		
  		$('.autoIncrement').each(function(){
- 			console.log(cnt)
  			$(this).text(cnt++)
  		})
  		
@@ -37,16 +40,26 @@
  		*/
  		
  	})
+ 	
+ 	function toggle(){
+ 		
+ 	}
 </script>
 </head>
 <body>
-	<div align="center">
-		<hr width="80%">
-		<h2>전체 회원 목록</h2>
-		<hr width="80%">
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
 	
-		<table border="1" style="width: 80%">
+	<section>
+	<div align="center">
+		<hr>
+		<h2>전체 회원 목록</h2>
+		<hr>
+		<form name="mainForm">
+		<table border="1">
 				<tr>
+					<th style="width:2%"><input type="checkbox" onclick="toggle()" ></th>
 					<th style="width:2%">no</th>
 					<th style="width:5%">아이디</th>
 					<th style="width:8%">이름</th>
@@ -64,6 +77,9 @@
 						
 				%>
 				<tr>
+					<td class="checkBox">
+						<input type="checkbox" name="memCheck">
+					</td>
 					<td class="autoIncrement"></td>
 					<td>
 						<a href="detailMember.jsp?id=<%=id %>"><%= id %></a>
@@ -82,7 +98,12 @@
 			</table>
 			<br>
 			<input type="button" value="회원등록" onclick="location.href='joinForm.jsp'">
-	
+		</form>
 	</div>
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +10,12 @@
 <link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
 <script type="text/javascript" src= "/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script>
+
+	// 만약 로그인 안한 사용자가 writeForm.jsp로 바로 접속한다면? => jsp 임시방편, mvc구조에서는 변경됨
+	if('${userVO}' == ''){
+		location.href = "/Mission-Web/jsp/login/login.jsp"
+	}
+
 	$(document).ready(function(){
 		$('#goListBtn').click(function(){
 			location.href = "list.jsp"
@@ -48,7 +55,6 @@
 		<jsp:include page="/jsp/include/topMenu.jsp"/>
 	</header>
 	
-	
 	<section>
 	<div align="center">
 		<hr width="100%">	
@@ -66,7 +72,12 @@
 				<tr>
 					<th width="25%">작성자</th>
 					<td>
-						<input type="text" size="60" name="writer">
+						
+						<%-- <input type="text" size="60" name="writer" value=${ sessionScope.userVO.id } readonly> --%>
+						
+						<c:out value="${ sessionScope.userVO.id }"/>
+						<input type="hidden" size="60" name="writer" value=${ sessionScope.userVO.id }>
+
 					</td>
 				</tr>
 				<tr>

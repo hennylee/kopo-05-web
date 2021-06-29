@@ -15,7 +15,7 @@
 		<br>	
 		
 		<button onclick="location.href='joinForm.jsp'">회원등록</button>
-		<button onclick="location.href='totalMemberList.jsp'">전체회원</button>
+		<button onclick="location.href='list.jsp'">전체회원</button>
 	
 	</div>
 </body>

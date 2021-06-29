@@ -1,3 +1,4 @@
+<%@page import="kr.ac.kopo.board.dao.BoardDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.ac.kopo.board.vo.BoardVO"%>
@@ -10,34 +11,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
-	Connection conn = new ConnectionFactory().getConnection();
-	StringBuilder sql = new StringBuilder();
-	sql.append("select no, title, writer, to_char(reg_date, 'yyyy-mm-dd') as reg_date ");
-	sql.append("	from t_board ");
-	sql.append("	order by no desc ");
 	
-	PreparedStatement pstmt = conn.prepareStatement(sql.toString());
-	ResultSet rs = pstmt.executeQuery();
-	
-	List<BoardVO> list = new ArrayList<>();
-	
-	while(rs.next()){
-		int no 			= rs.getInt("no");
-		String title 	= rs.getString("title");
-		String writer 	= rs.getString("writer");
-		String regDate 	= rs.getString("reg_date");
-		
-		BoardVO board = new BoardVO();
-		board.setNo(no);
-		board.setTitle(title);
-		board.setWriter(writer);
-		board.setRegDate(regDate);
-		
-		// 글 하나에 대한 객체를 List에 담기
-		list.add(board);
-	}
-	
-	JDBCClose.close(conn, pstmt);
+	BoardDAO dao = new BoardDAO();
+	List<BoardVO> list = dao.selectAll();
 	
 	// list를 공유영역에 등록시키기
 	pageContext.setAttribute("list", list);

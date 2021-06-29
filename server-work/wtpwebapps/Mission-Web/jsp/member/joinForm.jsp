@@ -5,74 +5,52 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 <script src = "/Mission-Web/resources/js/jquery-3.6.0.min.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
-	
-	/* 왜 실행 안되는지 알고 싶음!!! */
+	// 제출 확인
 	function checkForm(){
 		
-		if($('#tel2').length > 4){
-			alert('4글자 이내로 입력해주세요')
+		/* 왜 실행 안되는지 알고 싶음!!! */
+		if(id == ""){
+			$('#idCheckMsg').text('ID를 입력하세요')
 			return false
 		}
 		
-		
-		if($('#tel3').length > 4){
-			alert('4글자 이내로 입력해주세요')
+		/* 왜 실행 안되는지 알고 싶음!!! */
+		if($('#tel2').length > 4 || $('#tel3').length > 4){
+			$('#telCheckMsg').text('4글자 이내로 입력해주세요')
 			return false
 		}
 		
-		// 아이디 중복체크
 		
 		// 비밀번호 확인
+		let f = document.inputForm
+		
+		if(f.passwordCheck.value != f.password.value){
+			console.log('불일치')
+			$('#pwCheckMsg').text('비밀번호가 일치하지 않습니다.')
+			return false
+		}
 		
 		return true
 	}
 		
-		
+	/* id 중복체크 */
 	function idDoubleCheck(e) {
 		let id = $('#id').val()
 		
-		console.log(e)
-		
-		if(id == ""){
-			alert('id를 입력하세요')
-			return
+		if(id != ""){
+			let options = 'top=10, left=10, width=400, height=200, resizable=no';
+			let url = 'doubleCheck.jsp?id='+id
+			
+			window.open(url, '중복체크' , options)
 		}
 		
-		let url = 'doubleCheck.jsp?id='+id
-		let options = 'top=10, left=10, width=500, height=600, resizable=no';
-		
-		window.open(url, '중복체크' , options)
-	}
-	function pwdDoubleCheck(e) {
-		// 아이디 입력체크 
-		let f = document.inputForm
-		
-		// 아이디 중복체크
-		if(f.password.value != f.passwordCheck.value){
-			alert('패스워드가 서로 다릅니다.')
-			return false
-		}
-        
 	}
 	
-	function pwdDoubleCheck(e) {
-		let id = $('#id').val()
-		
-		console.log(e)
-		
-		if(id == ""){
-			alert('id를 입력하세요')
-			return
-		}
-		
-		let url = 'doubleCheck.jsp?id='+id
-		let options = 'top=10, left=10, width=500, height=600, resizable=no';
-		
-		window.open(url, '중복체크' , options)
-	}
 	
 	function sample6_execDaumPostcode() {
         new daum.Postcode({
@@ -124,25 +102,34 @@
 
 </script>
 </head>
+</head>
 <body>
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
+	
+	<section>
+	
 	<div align="center">
-		<hr width="80%">
+		<hr>
 		<h2>회원 가입</h2>
-		<hr width="80%">
+		<hr>
 		
 		<form action="join.jsp" method="post" name="inputForm" onsubmit="return checkForm()">
-			<table border="1" style="width: 60%">
+			<table border="1" style="width: 80%">
 				<tr>
 					<th>아이디</th>
 					<td>
 						<input type="text" name="id" id ="id" required>
 						<button onclick="idDoubleCheck(this)">중복체크</button>
+						<span id="idCheckMsg" style="color:red;font-weight:bold"></span>
 					</td>
 				</tr>
 				<tr>
 					<th>이름</th>
 					<td>
 						<input type="text" name="name" required>
+						<span id="nameCheckMsg" style="color:red;font-weight:bold"></span>
 					</td>
 				</tr>
 				<tr>
@@ -154,8 +141,8 @@
 				<tr>
 					<th>비밀번호 확인</th>
 					<td>
-						<input type="password" name="passwordCheck" required>
-						<button onclick="pwdDoubleCheck(this)">중복체크</button>
+						<input type="password" name="passwordCheck" id = "passwordCheck" required>
+						<span id="pwCheckMsg" style="color:red;font-weight:bold"></span>
 					</td>
 				</tr>
 				<tr>
@@ -180,14 +167,17 @@
 						</select>
 						-
 						<input type="text" name="tel2" 
-						pattern="[0-9]{4}" 
-						required 
+						pattern="[0-9]{4}"
+						required
+						style="width: 20%"
 						> 
 						-
 						<input type="text" name="tel3" 
 						pattern="[0-9]{4}" 
-						required 
+						required
+						style="width: 20%"
 						> 
+						<span id="telCheckMsg" style="color:red;font-weight:bold"></span>
 					</td>
 				</tr>
 				<tr>
@@ -207,12 +197,21 @@
 				</tr>
 			</table>
 			
-		<input type="button" value="뒤로가기" onclick="location.href='totalMemberList.jsp'">
+		<input type="button" value="뒤로가기" onclick="location.href='list.jsp'">
 		<input type="submit" value="입력완료">
 	
 		</form>
 		
 		
-	</div>
+	</div>	
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
 </body>
 </html>
+
+
+
+<body>

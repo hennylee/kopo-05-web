@@ -77,12 +77,12 @@
 		let hobby = document.inputForm.hobby
 		let cnt = hobby.length
 		
-		for(let i = 0; i <hobby.length && hobby[i].checked; i++){
+		for(let i = 0; i < hobby.length && hobby[i].checked; i++){
 			cnt--
 		}
 		
 		for(let i = 0; i < hobby.length; i++){
-			hobby[i].checked = Boolean(cnt)
+			hobby[i].checked = Boolean(cnt) // 자바스크립트에서 0, null = false,
 		}
 		
 	}
