@@ -42,6 +42,17 @@
  	})
  	
  	function toggle(){
+ 		let checkedMem = document.mainForm.memCheck
+ 		
+ 		let cnt = checkedMem.length
+ 		
+ 		for(let i = 0; i < checkedMem.length && checkedMem[i].checked; i++){
+ 			cnt--
+ 		}
+ 		
+ 		for(let i = 0; i < checkedMem.length; i++){
+ 			checkedMem[i].checked = Boolean(cnt)
+ 		}
  		
  	}
 </script>
