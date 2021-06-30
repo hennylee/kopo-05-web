@@ -98,7 +98,7 @@
 					</td>
 					<td class="autoIncrement"></td>
 					<td>
-						<a href="detailMember.jsp?id=<%=id %>"><%= id %></a>
+						<a href="detail.jsp?id=<%=id %>"><%= id %></a>
 					</td>
 					<td><%= rs.getString("name") %></td>
 					<td><%= rs.getString("password") %></td>

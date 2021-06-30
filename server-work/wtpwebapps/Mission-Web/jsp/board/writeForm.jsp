@@ -32,20 +32,34 @@
 			return false
 		}
 		
-		if(f.writer.value == ''){
-			alert('작성자를 입력하세요')
-			f.writer.focus()
-			return false
-		}
-		
 		if(f.content.value == ''){
 			alert('내용을 입력하세요')
 			f.content.focus()
 			return false
 		}
 		
+		// 파일 확장자 체크
+		if(checkExt(f.attachfile1) || checkExt(f.attachfile2)){
+			return false
+		}
+		
 		return true
 	}
+	
+	function checkExt(obj) {
+		let forbidName = ['exe', 'java', 'jsp', 'js', 'class']
+		let fileName = obj.value
+		let ext = fileName.substring(fileName.lastIndexOf('.')+1)
+		
+		for(let i = 0; i < forbidName.length; i++){
+			if(forbidName[i] == ext){
+				alert(ext + '확장자는 파일업로드 정책에 위배됩니다.')
+				return true
+			}
+		}
+		return false
+	}	
+	
 
 </script>
 </head>
@@ -61,7 +75,10 @@
 		<h2>게시글 등록폼</h2>
 		<hr width="100%">	
 		
-		<form action="write.jsp" method="post" name ="writeForm" onsubmit="return doWrite()">
+		<form action="write.jsp" method="post" name ="writeForm" 
+				onsubmit="return doWrite()"
+				enctype="multipart/form-data">
+				
 			<table style="width:100%" class="form">
 				<tr>
 					<th width="25%">제목</th>
@@ -73,8 +90,7 @@
 					<th width="25%">작성자</th>
 					<td>
 						
-						<%-- <input type="text" size="60" name="writer" value=${ sessionScope.userVO.id } readonly> --%>
-						
+				   <%-- <input type="text" size="60" name="writer" value=${ sessionScope.userVO.id } readonly> --%>
 						<c:out value="${ sessionScope.userVO.id }"/>
 						<input type="hidden" size="60" name="writer" value=${ sessionScope.userVO.id }>
 
@@ -84,6 +100,13 @@
 					<th width="25%">내용</th>
 					<td>
 						<textarea rows="30" cols="100" name="content"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th width="25%">첨부파일</th>
+					<td>
+						<input type="file" name="attachfile1"><br>
+						<input type="file" name="attachfile2">
 					</td>
 				</tr>
 			</table>

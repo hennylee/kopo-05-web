@@ -48,7 +48,8 @@
 		*/
 		<c:choose>
 			<c:when test="${ not empty userVO}">
-				location.href = 'detail.jsp?no=' + no;
+				location.href = 'detail.jsp?no=' + no + '&type=list';
+													// 수정 후 list의 조회수 증가시키지 않기 위한 구분자
 			</c:when>
 			<c:otherwise>
 				/* confirm 
@@ -107,12 +108,12 @@
 
 
 								<c:out value="${board.title }"/>
-								<%-- 
-									코드링크를 악성코드 링크로 변환시키지 않는 방법 
-										- out태그를 활용한다.
-										- out태그의 ecscapeXml 속성을 통해 링크를 문자열로 변환시키게 되기 때문에 
-										악성링크를 방지할 수 있는 것이다. 
-								--%>
+							<%-- 
+								코드링크를 악성코드 링크로 변환시키지 않는 방법 
+									- out태그를 활용한다.
+									- out태그의 ecscapeXml 속성을 통해 링크를 문자열로 변환시키게 되기 때문에 
+									악성링크를 방지할 수 있는 것이다. 
+							--%>
 							</a>
 						</td>
 						<td>${board.writer }</td>
