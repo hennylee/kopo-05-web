@@ -68,6 +68,11 @@
 		<h2>전체 회원 목록</h2>
 		<hr>
 		<form name="mainForm">
+		<div class="topBtnZone">
+			<input type="button" value="등록" onclick="location.href='joinForm.jsp'">
+			<button type="button">수정</button>
+			<button type="button">삭제</button>
+		</div>
 		<table border="1">
 				<tr>
 					<th style="width:2%"><input type="checkbox" onclick="toggle()" ></th>
@@ -107,8 +112,6 @@
 					} 
 				%>
 			</table>
-			<br>
-			<input type="button" value="회원등록" onclick="location.href='joinForm.jsp'">
 		</form>
 	</div>
 	</section>

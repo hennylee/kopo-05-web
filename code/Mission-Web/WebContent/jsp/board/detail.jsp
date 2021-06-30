@@ -76,7 +76,7 @@
 		
 		<br>
 		
-		<div class="bottonBtnZone">
+		<div class="downBtnZone">
 			<button onclick="location.href='list.jsp'">목록</button>
 			
 			<%-- 작성자이면 수정/삭제가 가능해야함 --%>			

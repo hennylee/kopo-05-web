@@ -197,8 +197,8 @@
 				</tr>
 			</table>
 			
-		<input type="button" value="뒤로가기" onclick="location.href='list.jsp'">
-		<input type="submit" value="입력완료">
+		<input type="button" value="취소" onclick="location.href='list.jsp'">
+		<input type="submit" value="완료">
 	
 		</form>
 		

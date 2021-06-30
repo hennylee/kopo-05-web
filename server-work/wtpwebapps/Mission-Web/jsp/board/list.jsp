@@ -123,7 +123,7 @@
 			<br>
 			
 			<c:if test="${ not empty userVO }">
-				<div class="bottonBtnZone">
+				<div class="downBtnZone">
 					<button id="addBtn">새글등록</button>
 				</div>
 			</c:if>

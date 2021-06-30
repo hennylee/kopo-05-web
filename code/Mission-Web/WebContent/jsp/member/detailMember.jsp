@@ -47,14 +47,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/Mission-Web/resources/css/layout.css"/>
+<link rel="stylesheet" href="/Mission-Web/resources/css/board.css"/>
 </head>
 <body>
+	<header>
+		<jsp:include page="/jsp/include/topMenu.jsp"/>
+	</header>
+	
+	<section>
 <div align="center">
-		<hr width="80%">
+		<hr>
 		<h2>회원 상세</h2>
-		<hr width="80%">
+		<hr>
 		
-			<table border="1" style="width: 60%">
+			<table border="1" style="width: 80%">
 				<tr>
 					<th>아이디</th>
 					<td>${ member.id }
@@ -97,5 +104,15 @@
 		<input type="button" value="회원등록" onclick="location.href='joinForm.jsp'">
 	
 	</div>
+	</section>
+	
+	<footer>
+		<%@ include file="/jsp/include/bottom.jsp" %>
+	</footer>
 </body>
 </html>
+
+
+
+</head>
+<body>

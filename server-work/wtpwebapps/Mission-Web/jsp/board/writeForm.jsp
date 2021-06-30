@@ -87,7 +87,7 @@
 					</td>
 				</tr>
 			</table>
-			<div class="bottonBtnZone">
+			<div class="downBtnZone">
 				<input type="submit" value="등록">
 				<input type="button" value="목록" id="goListBtn">
 			</div>

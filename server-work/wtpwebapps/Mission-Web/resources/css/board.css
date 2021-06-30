@@ -39,6 +39,11 @@ table.list tr:hover {
 	background-color: #FEFDCF;
 }
 
-.bottonBtnZone {
+.topBtnZone {
+	margin: 1%;
+	text-align: end;
+}
+
+.downBtnZone {
 	margin: 1%;
 }
