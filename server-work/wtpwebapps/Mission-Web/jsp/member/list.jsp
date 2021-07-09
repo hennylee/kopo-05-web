@@ -14,7 +14,9 @@
 	
 	ResultSet rs = pstmt.executeQuery();
 	
-	
+	while(rs.next()){
+		
+	}
 
 %>
 <!DOCTYPE html>
