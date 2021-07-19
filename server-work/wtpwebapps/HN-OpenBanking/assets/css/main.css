@@ -1288,6 +1288,7 @@ dl {
 
 /* Actions */
 ul.actions {
+  place-content: center;
   display: -moz-flex;
   display: -webkit-flex;
   display: -ms-flex;
@@ -1393,6 +1394,7 @@ ul.contact {
 
 /* Pagination */
 ul.pagination {
+  text-align: center;
   cursor: default;
   list-style: none;
   padding-left: 0; }

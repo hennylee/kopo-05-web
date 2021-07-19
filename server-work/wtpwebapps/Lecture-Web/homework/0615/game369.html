@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/* 
+3,6,9 가 들어가면 짝,  3,6,9가 두 번 들어가면 짝짝
+10, 20, 30... 10의 배수에 뽀숑, 뽀뽀숑, 뽀뽀뽀숑, 짝뽀뽀뽀뽀숑
+*/
+
+	let num = 0;
+	let clap = '짝';
+	let ten = '';
+	
+	var input = prompt('몇 번 실행하시겠습니까? ')
+	
+	while(num < input){
+		num++
+		
+		// 3,6, 9가 들어갈 때
+		if(num.toString().includes('3') || num.toString().includes('6')  || num.toString().includes('9')) {
+			document.write(clap + '<br>')
+			
+			console.log(num.toString().indexOf('3'))
+			
+			// 10의 배수일때 이고 3, 6, 9가 들어갈 때
+			if(num % 10 == 0){
+				ten += '뽀'
+				document.write(clap + ten + '숑<br>')
+			}
+		}
+		// 10의 배수일때
+		else if(num % 10 == 0){
+			ten += '뽀'
+			document.write(ten + '숑<br>')
+		}
+		else{
+			document.write(num + '<br>')
+		}
+		
+	}
+	
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>Lecture-Web</display-name>
+  
+  <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.HelloServlet</servlet-class>
+  	<!-- .java라는 확장자는 붙이지 않는다.  -->
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  
+  <!-- 서블릿 매핑은 '1:다수'가 가능하다 -->
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/hi</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  <servlet>
+  	<servlet-name>method</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.MethodServlet</servlet-class>
+  	<!-- .java라는 확장자는 붙이지 않는다.  -->
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>method</servlet-name>
+  	<url-pattern>/method</url-pattern>
+  	<!-- form태그 action에서 form action="/Lecture-Web/method" 이렇게 요청했으니까, /method가 받아야 함 -->
+  </servlet-mapping>
+
+
+  <servlet>
+  	<servlet-name>table</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.homework.TableServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>table</servlet-name>
+  	<url-pattern>/servlet/table</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>homework</servlet-name>
+  	<servlet-class>kr.ac.kopo.servlet.HomeworkServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>homework</servlet-name>
+  	<url-pattern>/pinfoResult</url-pattern>
+  </servlet-mapping>
+
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	let state = new Array()
+	
+	/* 자바스크립트의 배열에서는 index가 문자일 수도 있다. */
+	state['서초'] = '서울특별시'
+	state['광명'] = '경기도'
+	state['동래'] = '부산광역시'
+	
+	state['서초'] = '미지정' // 배열의 숫자 index와 같이 각 index에는 하나의 값만 매칭된다. 
+	
+	
+	for(let i in state){
+		console.log(i)
+		document.write(i + " : " + state[i] + '<br>')
+	}
+	
+	document.write('<hr>')
+	
+	let p = {}
+	p.name = '홍길동'
+	p.phone = '010-1111-2222'
+	
+	for(let key in p){
+		console.log(key)
+		document.write(key + " : " + p[key] + '<br>')
+	}
+	
+	let q = []
+	q['name'] = '홍길동'
+	q['phone'] = '010-1111-2222'
+	
+	for(let key in q){
+		console.log(key)
+		document.write(key + " : " + q[key] + '<br>')
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

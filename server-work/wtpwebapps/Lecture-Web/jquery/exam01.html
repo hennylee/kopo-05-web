@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<!-- 로딩하려는 js파일 갯수만큼 script 태그를 따로 선언해줘야 한다. -->
+
+<!-- (1) 상대경로 -->
+<!-- <script src="./js/jquery-3.6.0.min.js"></script>  --> 
+
+<!-- (2) 절대경로 -->
+<!-- <script src="/Lecture-Web/jquery/js/jquery-3.6.0.min.js"></script> --> 
+
+<!-- (3) CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script>
+	/* 제이쿼리는 모두 콜백함수이다. */
+	$(document).ready(function () {
+		alert('ready1111')
+	})
+	$(document).ready(function () {
+		alert('ready222')
+	})
+	$(document).ready(function () {
+		alert('ready3333')
+	})
+	$(function () {
+		alert('ready4444')
+	})
+	
+	/* window.onload = function(){}의 이벤트와 다르게, 
+	$(document).ready(function(){})은 콜백함수이기 때문에
+	여러번 선언되어도 덮어쓰기 되지 않는다. 
+	다만 반드시 순차적으로 수행되는 것이 아니다. 
+	(document).ready는 생략 가능하다.
+	*/
+	
+	// 제이쿼리의 목적은 DOM 구조를 제어하기 위함이다. 
+	
+	/* body 태그 밑에 있는 요소를 선택하기 위한 문법이 selector, 선택자이다. 
+	형식은 $(selector)와 같다.
+	*/
+</script>
+
+</head>
+<body>
+
+</body>
+</html>

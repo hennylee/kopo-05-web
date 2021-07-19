@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	/* 자바 스크립트의 오류는 개발자 도구 console 창에 뜬다 */
+	alert(`a : ${a} , b : ${b}`)
+	
+	alert('hello')
+	
+	/* 자바스크립트 변수의 호이스팅(Hoisting) : var을 통해 정의된 변수의 선언문을 유효 범위의 최상단으로 끌어올리는 행위 */
+	var a = 10
+	var b = 30
+	alert(`a : ${a} , b : ${b} , c : ${c}`)
+
+	/* 블록스코프 안에서 선언된 변수라도 블록 외부에서까지 적용이 된다. */
+	{
+		var a = 20
+		var c = 50
+		alert(`a : ${a} , b : ${b} , c : ${c}`)
+	}
+	/* a: 20 , b: 30 , c: 50 */
+	alert(`a : ${a} , b : ${b} , c : ${c}`)
+	
+	/* 변수의 호이스팅 문제를 해결하기 위해 나온 변수  :  let, const */
+	
+</script>
+</head>
+<body>
+</body>
+</html>

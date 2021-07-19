@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	function func01() {
+		document.write(`${arguments[0]} : ${arguments[1]} : ${arguments[2]}`)
+		document.write('<hr>')
+	}
+
+	func01(1, 2, 3)
+	
+	
+	function func02(...numbers){
+		console.log(numbers)
+		document.write(`${numbers[0]} : ${numbers[1]} : ${numbers[2]}`)
+		document.write('<hr>')
+	}
+	
+	func02(1, 2, 3)
+	func02(1)
+	
+	function func03(a, b, c, ...numbers){
+		document.write(`a : ${a} , b : ${b} ,  c : ${c} ,numbers : ${numbers}`)
+		document.write('<hr>')
+	}
+	
+	func03(1, 2, 3, 4, 5, 6)
+	
+	
+	let array = [10, 20, 30]
+	func01(array) 			  		// 10,20,30 : undefined : undefined
+
+	/* 매개변수로 array배열의 요소를 분리시켜서 하나씩 func01의 파라미터로 넣어서 실행하는 방법은?  */
+	func01.apply(null, array) 		// 10 	  : 20 		  : 30  ==> ECMAScript5
+	func01(...array) 				// 10 	  : 20 		  : 30  ==> ECMAScript6
+	
+	func03(1,2,...array) 			// a : 1 , b : 2 , c : 10 ,number : 20,30
+	func03(...array,...array) 		// a : 10 , b : 20 , c : 30 ,number : 10,20,30
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	window.onload = function(){
+		
+		let num = 0
+		let pTag = document.createElement('p')
+		let pText = document.createTextNode(`${num} 번 클릭`)
+		
+		pTag.appendChild(pText)
+		document.body.appendChild(pTag)
+		
+		let clickBtn = document.createElement('input')
+		clickBtn.setAttribute('type', 'button')
+		clickBtn.setAttribute('value', '클릭')
+		
+		document.body.appendChild(clickBtn)
+		
+		clickBtn.onclick = function(){
+			let newPTag = document.getElementsByTagName('p')
+			let target = newPTag.innerText
+			target = num++
+			
+		}
+
+		console.log(clickBtn)
+	}
+	
+</script>
+</head>
+<body>
+</body>
+</html>

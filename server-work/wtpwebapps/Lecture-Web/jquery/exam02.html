@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+
+	/* id가 h01인 태그를 안보이게 숨기기 */
+
+	/* (1) 자바스크립트로 작성하는 방법
+	window.onload = function(){
+		alert('!!!')
+		let hTag = document.getElementById("h01")
+		hTag.style.display = 'none'
+	} */
+	
+	/* (2) 제이쿼리로 편하게 작성하는 방법 */
+	$(document).ready(function(){
+		alert('hide 전')
+		$('#h01').hide()
+		/* class가 h01인 Hello 태그만 지우기 */
+		$('h1.h01:first').hide()
+		$('h1.h01').hide()
+	})
+	
+	/* 제이쿼리 객체와 자바스크립트 객체를 구분해서 사용할 수 있어야 한다. 
+	제이쿼리 객체와 자바스크립트 객체의 문법이 조금씩 다르기 때문이다.
+	우선 콘솔로 확인했을 때 앞에 S.fn.init이 붙어있으면, 제이쿼리 객체라고 생각하면 된다. */
+	
+	
+</script>
+</head>
+<body>
+	<h1 id = "h01">Hello</h1>
+	<h1 id = "h02">안녕</h1>
+	<hr>
+	<h1 class = "h01">Hello</h1>
+	<h1 class = "h01">안녕</h1>
+</body>
+</html>

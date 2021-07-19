@@ -49,7 +49,6 @@ from hn_member
 where id = 'test' and password = '1111' and type = 'U' ;
 
 -- 회원가입
-
 INSERT INTO hn_member(
     id
     ,name
@@ -83,3 +82,48 @@ VALUES(
 ,'U');
 
 commit;
+
+
+
+-- q&a (계층형 게시판)
+CREATE TABLE HN_QNA(
+    no NUMBER(38),
+    group_no number(38), -- 글그룹 (= 최상단 부모글번호)
+    group_order number(38) default 0, -- 그룹 동일 depth간 순서? (글번호로 정렬 가능할듯)
+    group_depth number(38) default 0, -- 그룹 내 depth
+    parent_no  number(38), -- 직계 부모 글번호
+    writer varchar2(20),
+    subject varchar2(200),
+    content varchar2(4000),
+    type char(1) default 'Q',
+    view_cnt number(38) default 0,
+    regdate date default sysdate,
+    CONSTRAINT hn_qna_no_pk PRIMARY key(no)  
+);
+
+-- qna 글번호 시퀀스
+create SEQUENCE seq_hn_qna nocache;
+
+-- qna 새 질문 등록
+insert into hn_qna(
+    no,
+    group_no, -- 글그룹 (= 최상단 부모글번호)
+    --group_order, -- 그룹 동일 depth간 순서? (글번호로 정렬 가능할듯)
+    --group_depth, -- 그룹 내 depth
+    parent_no, -- 직계 부모 글번호
+    writer,
+    subject,
+    content
+)
+values(
+    SEQ_HN_QNA.nextval,
+    SEQ_HN_QNA.currval,
+    SEQ_HN_QNA.currval,
+    'test',
+    '#1 : 제목',
+    '내용무'
+);
+
+commit;
+
+select * from hn_qna;

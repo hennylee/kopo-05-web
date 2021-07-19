@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	let d = new Date()
+	
+	document.write(d)
+	
+	
+	/* 오늘 날짜 정보를 출력하는 today()함수 만들기 */
+	// today() :  오늘은 2021년 6월 15일 화요일 입니다.
+	
+	Date.prototype.today = function() {
+		let year = this.getFullYear()
+		let month = this.getMonth() + 1
+		let date = this.getDate()
+		
+		let days = ['일', '월', '화', '수', '목', '금', '토' ]
+		let day = days[this.getDay()]
+		
+		return `<br>오늘은 ${year}년 ${month}월 ${date}일 ${day}요일 입니다. <br>`
+	}
+	
+	
+	document.write(d.today())
+	
+	/* 2000년 12월 25일 정보를 출력하기 */
+	let d2 = new Date(2000, 12-1, 25)
+	document.write(d2.today())
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

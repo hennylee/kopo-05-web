@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="js/jquery-3.6.0.min.js"></script>
+<script>
+
+	/* 동적으로 element를 추가하기 */
+	
+	$(document).ready(function() {
+		
+		/* append : 자식의 맨 마지막에 추가하기 */
+		$('#btn01').click(function(){
+			
+			/* 1. 자바스크립트 방식 */
+			/* let h1Tag = document.createElement('h1')
+			let text = document.createTextNode('세번째 문장')
+			h1Tag.appendChild(text)
+			document.appendChild('div').appendChild(h1Tag) */
+			
+			/* 2. 제이쿼리 방식 */
+			$('div').append('<h1>세번째 문장</h1>')
+		})
+		
+		
+		/* prepend : 자식의 맨 처음에 추가하기  */
+		$('#btn02').click(function(){
+			//$('ul').append('<li>검정</li>')
+			$('ul').prepend('<li>검정</li>')
+		})
+		
+		
+		/* 자식에 추가하려는 내용이 여러개인 경우 */
+		$('#btn03').click(function(){
+			
+			/* 매개변수가 작성된 순서로 추가됨 */
+			$('body').prepend('<h4>추가된 문장</h4>', '<h3>또 추가된 문장</h3>', '<h2>마지막으로 추가된 문장</h3>')
+			
+			/* 맨 마지막 prepend가 젤 위로 들어감 */
+			/* $('body').prepend('<h4>추가된 문장</h4>')
+			$('body').prepend('<h3>또 추가된 문장</h3>')
+			$('body').prepend('<h2>마지막으로 추가된 문장</h3>') */
+			
+		})
+		
+		
+		/* 형제 노드 앞/뒤에 추가하기 */
+		$('#btn04').click(function(){
+			$('img').after('<br><b>뒤에 추가</b>')
+			$('img').before('<br><b>앞에 추가</b>', '2번째지롱')
+		})
+	})
+</script>
+</head>
+<body>
+	<div>
+		<h1>첫번째 문장</h1>
+		<h1>두번째 문장</h1>
+	</div>
+	<h2>색상표</h2>
+	<ul>
+		<li>빨강</li>
+		<li>노랑</li>
+		<li>파랑</li>
+		<li>초록</li>
+	</ul>
+	
+	<h1>Hello</h1>
+	<img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+	<h2>good-bye</h2>
+	
+	<button id = "btn01">문장추가</button>
+	<button id = "btn02">색상추가</button>
+	<button id = "btn03">본문추가</button>
+	<button id = "btn04">형제추가</button>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+/*
+	BOM (브라우저 객체 모델)
+ 	- window	:	브라우저의 최상의 객체
+		-location
+		-screen
+		-history
+		-document
+		-navigator
+ */
+ 
+	window.alert('hello') // window. 은 생략 가능하다.
+	
+	/* var나 let 없이 변수명으로 바로 변수를 선언할 수 있는 이유는 바로 window. 객체에 만들어지기 때문이다.  */
+	window.b = '가'
+	
+	
+	/* 팝업창 */
+	let sub = window.open("", "", "width=500, height=400")
+	if(!sub){
+		alert('팝업창 옵션을 확인하세요')
+	}
+	sub.moveTo(100, 100)// moveTo = 팝업창 이동 : leftTop에서부터 100 x 100 이동
+	
+	let pid = setInterval(function() {
+		sub.moveBy(10, 10)  // moveBy : 현재 나의 위치를 기준으로 10x10 이동
+	}, 1000)
+	
+	setTimeout(function() {
+		sub.resize(width, height) // screen.width , screen.height 인데 screen. 은 생략 가능
+		clearInterval(pid)
+	}, 10000)
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	window.onload = function(){
+		
+		/*
+			표준 이벤트 모델 DOM Level2 : addEventListener(eventName, handler, useCapture), removeEventListener()
+				- eventName : 이벤트 이름, handler : 처리함수
+		*/
+		
+		let btn01 = document.getElementById("btn01")
+		
+		btn01.addEventListener('click', function(){
+			alert('btn01 click...')	
+		})
+		
+		let btn02 = document.getElementById("btn02")
+		let span = document.getElementById("span01")
+		
+		btn02.addEventListener('click', function(){
+			alert('btn02 click...')	
+		}, true)  // useCapture = true : 부모에서 자식으로...(이벤트 캡처링) / 설정안하면 이벤트 버블링(자식에서 부모로...)
+		
+		span.addEventListener('click', function(){
+			alert('span click...')	
+		})
+		
+	}
+</script>
+
+
+</head>
+<body>
+	<button id = "btn01">click</button>
+	<button id = "btn02"><span id = "span01">click</span></button>
+
+</body>
+</html>

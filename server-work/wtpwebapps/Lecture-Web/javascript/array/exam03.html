@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+	/* 깊은 복사와 얕은 복사 */
+
+	
+	/* 1. 얕은 복사 : 주소값만 복사 */
+	let array = [1, 2, 3, 4, 5] 
+	let array2 = array
+	
+	console.log('array 	: ' + array)
+	console.log('array2 : ' + array2)
+	
+	array2[0] = 100	
+	console.log('array 	: ' + array)
+	console.log('array2 : ' + array2)
+	
+	/* 2. 깊은 복사  */
+	let array3 = []
+	for(let i in array){
+		array3[i] = array[i]
+	}
+	
+	console.log('array 	: ' + array)
+	console.log('array3 : ' + array3)
+	
+	array3[0] = 200	
+	console.log('array 	: ' + array)
+	console.log('array3 : ' + array3)
+	
+	/* 전개 연산자로 깊은 복사 쉽게 하기 */
+	let array4 = [...array]
+	
+	console.log('array 	: ' + array)
+	console.log('array4 : ' + array4)
+	
+	array4[0] = 500	
+	console.log('array 	: ' + array)
+	console.log('array4 : ' + array4)
+	
+	
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

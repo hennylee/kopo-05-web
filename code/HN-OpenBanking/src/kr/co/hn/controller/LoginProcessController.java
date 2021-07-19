@@ -27,9 +27,12 @@ public class LoginProcessController implements Controller {
 		MemberVO user =  dao.login(member);
 		
 		String url = "";
+		String msg = "";
+		
 		// 로그인 실패
 		if(user == null) {
-			url = "redirect:/login.do";
+			msg = "로그인에 실패하였습니다";
+			url = "/login.do";
 		}
 		// 로그인 성공
 		else {
@@ -37,6 +40,10 @@ public class LoginProcessController implements Controller {
 			session.setAttribute("user", user);
 			url = "redirect:/";
 		}
+		
+		System.out.println(msg);
+		request.setAttribute("msg", msg);
+		
 		
 		return url;
 	}

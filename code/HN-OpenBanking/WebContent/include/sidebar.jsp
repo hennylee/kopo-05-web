@@ -19,6 +19,7 @@
 										<h2>메뉴</h2>
 									</header>
 									<ul>
+										<li><a href="<%=request.getContextPath()%>/qna/list.do">Q & A</a></li>
 										<li><a href="index.html">홈페이지</a></li>
 										<li><a href="generic.html">회사 소개</a></li>
 										<li><a href="elements.html">상품 소개</a></li>

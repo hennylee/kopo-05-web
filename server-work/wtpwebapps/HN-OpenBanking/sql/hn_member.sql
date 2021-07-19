@@ -49,7 +49,6 @@ from hn_member
 where id = 'test' and password = '1111' and type = 'U' ;
 
 -- 회원가입
-
 INSERT INTO hn_member(
     id
     ,name
@@ -83,3 +82,20 @@ VALUES(
 ,'U');
 
 commit;
+
+
+
+-- q&a (계층형 게시판)
+CREATE TABLE HN_QNA(
+    no NUMBER(38),
+    group_no number(38),
+    group_order number(38),
+    group_depth number(38),
+    parent_no  number(38),
+    writer varchar2(20),
+    subject varchar2(200),
+    content varchar2(4000),
+    type char(1),
+    view_cnt number(38),
+    regdate date default sysdate
+);

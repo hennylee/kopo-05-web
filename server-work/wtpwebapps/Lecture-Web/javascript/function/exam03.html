@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function func(num1, num2, num3){
+		document.write(` ${num1} : ${num2} : ${num3}`)
+		document.write('<br>')
+	}
+	
+	func(100, 200, 300)
+	func(10, 20)
+	func(1)
+	
+	document.write('<hr>')
+	
+	/* 매개변수 값보다 적은 매개변수가 날라오면, 0으로 채워주고 싶다면? */
+			
+	/* (1) 자바 스크립트의 true, false 특징을 사용한다.  */
+	function func01(num1, num2, num3){
+		
+		if(!num1) num1 = 0
+		if(!num2) num2 = 0
+		if(!num3) num3 = 0
+		
+		document.write(` ${num1} : ${num2} : ${num3}`)
+		document.write('<br>')
+	}
+	
+	func01(100, 200, 300)
+	func01(10, 20)
+	func01(1)
+	
+	document.write('<hr>')
+	
+	/* (2) || 논리 연산자를 사용하기  */
+	function func02(num1, num2, num3){
+		
+		/* num1이 0, undefined, null이면 false =>  */
+		num1 = num1 || 5
+		num2 = num2 || 5
+		num3 = num3 || 5
+		
+		document.write(` ${num1} : ${num2} : ${num3}`)
+		document.write('<br>')
+	}
+	
+	func02(100, 200, 300)
+	func02(10, 20)
+	func02(1)
+	func02()
+	
+	document.write('<hr>')
+	
+	/* (3) 매개 변수 초기화를 이용하기 */
+	function func03(num1 = 6, num2 = 6, num3 = 6){
+		
+		document.write(` ${num1} : ${num2} : ${num3}`)
+		document.write('<br>')
+	}
+	
+	func03(100, 200, 300)
+	func03(10, 20)
+	func03(1)
+	func03()
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>

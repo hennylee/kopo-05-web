@@ -36,11 +36,15 @@ public class FrontControllerServlet extends HttpServlet {
 		String context = request.getContextPath(); // 프로젝트명
 		uri = uri.substring(context.length());
 		
+		System.out.println("uri : "+ uri);
+		
 		try {
 			
 			Controller control = mappings.getController(uri);
 			
 			String callPage = control.handleRequest(request, response);
+			
+			System.out.println("callPage : "+ callPage);
 			
 			
 			if(callPage.startsWith("redirect:")) {

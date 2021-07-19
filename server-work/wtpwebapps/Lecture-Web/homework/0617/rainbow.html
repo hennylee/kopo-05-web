@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style>
+	.weekdays{
+		float: left;
+		width: 100px;
+		height: 100px;
+		align-content: center;
+		display: inline-grid;
+    	text-align: center;
+	}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+	
+	//let daysKor = ['일', '월', '화', '수', '목', '금', '토' ]
+	let daysEng = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat' ]
+	let colors = ['red', 'orange', 'yellow', 'green', 'blue', 'navy', 'purple' ]
+
+	$(document).ready(function(){
+		
+		let weekdays = $('.weekdays')
+		
+		$('.weekdays').each(function(index) {
+			$(this).css('background-color', colors[index])
+		})
+		
+		$('.weekdays').hover(function(){
+			$(this)
+				.animate({
+					width: '150px',
+					height: '150px'
+				})
+				
+			let day = $(this).text() + '요일'
+			$(this).text(day)
+				
+		}, function(){
+			$(this)
+			.animate({
+				width: '100px',
+				height: '100px'
+			})
+		
+			let day = $(this).text().replace('요일', '')
+			$(this).text(day)
+	
+		})
+	})
+</script>
+</head>
+<body>
+	<div class="weekdays" id="sun">일</div>
+	<div class="weekdays" id="mon">월</div>
+	<div class="weekdays" id="tue">화</div>
+	<div class="weekdays" id="wed">수</div>
+	<div class="weekdays" id="thu">목</div>
+	<div class="weekdays" id="fri">금</div>
+	<div class="weekdays" id="sat">토</div>
+</body>
+</html>

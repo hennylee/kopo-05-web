@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+	let books = ['콩쥐팥쥐','피터팬', '신데렐라','백설공주' ]
+	
+	
+	/* 위치를 알 수 있는 출력 */
+	for(let index = 0; index < books.length; index++){
+		document.write(books[index] + "&nbsp;&nbsp;&nbsp;")
+	}
+	document.write('<br>')
+	
+	
+	for(let i in books){
+		document.write(books[i] + "&nbsp;&nbsp;&nbsp;")
+	}
+	document.write('<br>')
+	
+	
+	
+	/* 위치를 알 수 없는 출력 */
+	for(let book of books){
+		document.write(book + "&nbsp;&nbsp;&nbsp;")
+	}
+	document.write('<br>')
+	
+	
+	/* 6버전에서 추가된 함수 : forEach */
+	books.forEach(function(element, index, array){
+		console.log(arguments) // : 넘어오는 인자 확인
+		document.write(element + "&nbsp;&nbsp;&nbsp;" )
+	})
+	document.write('<br>')
+	//[1,2,3].forEach()
+	
+	
+	// 정렬
+	books.sort()
+	
+	books.forEach(function(element, index, array){
+		document.write(element + "&nbsp;&nbsp;&nbsp;" )
+	})
+	document.write('<br>')
+	
+	let nums = [12, 6, 25, 63, 4, 32, 18, 4, 55, 35]
+	document.write('nums : ' + nums + '<br>')
+	
+	// 정렬
+	nums.sort()
+	document.write('sort() : ' + nums + '<br>') // 문자열 형태로 정렬을 하기 때문에 제대로 sort 안됨
+	
+	
+	/* 정수 형태로 정렬하려면 sort callback함수를 재정의해야 한다. */
+	nums.sort(function(left, right) {
+		console.log('오름차순 정렬')
+		console.log(arguments)
+		return left - right // 오름차순
+	})
+	document.write('오름차순 정렬 : ' + nums + '<br>')
+	
+	
+	nums.sort(function(left, right) {
+		console.log('내림차순 정렬')
+		console.log(arguments)
+		return right - left  // 내림차순 
+	})
+	document.write('내림차순 정렬 : ' + nums + '<br>')
+	
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
