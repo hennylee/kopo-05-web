@@ -10,23 +10,6 @@ public class JoinController implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		/*
-		 <!-- [
-		 id=" + id + ", 
-		 name=" + name + ", 
-		 residentNum=" + residentNum + ", 
-		 password=" + password + ", 
-		 emailId=" + emailId + ", 
-		 emailDomain=" + emailDomain+ ", 
-		 tel1=" + tel1 + ", 
-		 tel2=" + tel2 + ", 
-		 tel3=" + tel3 + ", 
-		 post=" + post + ", 
-		 basicAddr=" + basicAddr+ ", 
-		 detailAddr=" + detailAddr + ", 
-		 type=" + type + ", 
-		 regDate=" + regDate + "] -->
-		*/
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -105,29 +88,20 @@ public class JoinController implements Controller {
 		vo.setDetailAddr(detailAddr);
 		
 		MemberDAO dao = new MemberDAO();
-		System.out.println(dao);
-		//int result = dao.join(vo);
+		int result = dao.join(vo);
 		
-		
-		String url = "";
 		String msg = "";
 		
-		int result = -1;
-		
-		if(result != -1) {
-			url = "/";
+		if(result > 0) {
 			msg = "회원 가입이 완료되었습니다.";
 		}
 		else {
-			url = "/joinForm.do";
 			msg = "회원 가입이 취소되었습니다.";
 		}
 		
 		request.setAttribute("msg", msg);
-		request.setAttribute("url", url);
 		
-		
-		return "/member/join.jsp";
+		return "/";
 	}
 
 }

@@ -30,15 +30,11 @@ public class HandlerMapping {
 			Set<Object> keys = prop.keySet(); // properties key 내용을 Set으로 받기
 			
 			// properties의 value를 인스턴스화해서 매핑하기
-			System.out.println("--------------key----------------");
 			for(Object key : keys) {
-				System.out.println(key);
-				
 				String className = prop.getProperty(key.toString());
 				Class<?> clz = Class.forName(className);
 				mappings.put(key.toString(), (Controller)clz.newInstance());
 			}
-			System.out.println("----------------------------------");
 			
 		} catch(Exception e) {
 			e.printStackTrace();

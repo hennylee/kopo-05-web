@@ -44,7 +44,7 @@
 							    <!-- Modal content-->
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <button type="button" class="close button" data-dismiss="modal" style="height: 30px">&ensp;&times;&ensp;</button>
+							        <button type="button" class="close button modalClose" data-dismiss="modal" style="box-shadow: none;">&times;</button>
 							        <h4 class="modal-title">로그인 결과</h4>
 							      </div>
 							      <div class="modal-body">

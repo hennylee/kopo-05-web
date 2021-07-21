@@ -35,8 +35,7 @@ public class FrontControllerServlet extends HttpServlet {
 		String uri = request.getRequestURI(); // 클라이언트가 요청한 uri (../*.do 패턴 형식)
 		String context = request.getContextPath(); // 프로젝트명
 		uri = uri.substring(context.length());
-		
-		System.out.println("uri : "+ uri);
+		System.out.println("uri : " + uri);
 		
 		try {
 			
@@ -44,11 +43,9 @@ public class FrontControllerServlet extends HttpServlet {
 			
 			String callPage = control.handleRequest(request, response);
 			
-			System.out.println("callPage : "+ callPage);
-			
+			System.out.println("callPage" + callPage);
 			
 			if(callPage.startsWith("redirect:")) {
-				
 				callPage = callPage.substring("redirect:".length());
 				response.sendRedirect(request.getContextPath() + callPage);
 				

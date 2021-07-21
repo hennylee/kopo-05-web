@@ -23,6 +23,11 @@
 							<!-- Header -->
 								<jsp:include page="/include/header.jsp"/>
 
+
+
+
+
+
 				<section>
 					<!-- Table -->
 					<header class="major">
@@ -30,7 +35,7 @@
 					</header>
 				
 				
-				<form method="post" action="<%= request.getContextPath() %>/">
+				<form method="post" action="<%= request.getContextPath() %>/qna/insert.do">
 					<div class="row gtr-uniform">
 					
 					<!-- Break -->
@@ -56,7 +61,7 @@
 						
 						<!-- Break -->
 						<div class="col-12">
-							<textarea name="content" id="demo-message" placeholder="내용을 입력해주세요" rows="15"></textarea>
+							<textarea name="content" id="demo-message" placeholder="내용을 입력해주세요" rows="15" cols="71" wrap="hard"></textarea>
 						</div>
 						
 						
@@ -73,6 +78,9 @@
 
 				
 				</section>
+				
+				
+				
 				
 				
 				

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <!--
 	Editorial by HTML5 UP
@@ -8,7 +9,12 @@
 -->
 <html>
 <jsp:include page="/include/head.jsp" />
+
 <body class="is-preload">
+
+
+
+
 
 	<!-- Wrapper -->
 	<div id="wrapper">
@@ -23,64 +29,110 @@
 				<section>
 					<!-- Table -->
 					<header class="major">
-						<h2>Q&A 게시판</h2>
+						<h2>Q & A</h2>
 					</header>
 
-					<div style="float: right;margin-bottom: 20px;">
+
+
+					<div style="text-align: right;">
 						<ul class="icons">
-							<li><a href="<%=request.getContextPath()%>/qna/update.do"
-								class="button small">수정</a></li>
-							<li><a href="<%=request.getContextPath()%>/qna/insertForm.do"
-								class="button small">새글등록</a></li>
+
+							<c:if test="${not empty user }">
+								<li><a
+									href="<%=request.getContextPath()%>/qna/insertForm.do"
+									class="button small">새글등록</a></li>
+							</c:if>
 						</ul>
 					</div>
 
 
-<div>
-					<div class="table-wrapper" style="overflow-x: initial;">
+					<div>
+						<div class="table-wrapper" style="overflow-x: initial;">
 
-						<table>
-							<thead>
-								<tr>
-									<th style="width: 10%;">글번호</th>
-									<th style="width: 50%;">글제목</th>
-									<th>글쓴이</th>
-									<th>등록일</th>
-									<th style="width: 10%;">조회수</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>1</td>
-									<td>제목</td>
-									<td>글쓴이</td>
-									<td>등록일</td>
-									<td>조회수</td>
-								</tr>
+							<table>
+								<thead>
+									<tr>
+										<th style="width: 10%;">글번호</th>
+										<th style="width: 50%;">글제목</th>
+										<th>글쓴이</th>
+										<th>등록일</th>
+										<th style="width: 10%;">조회수</th>
+									</tr>
+								</thead>
+								<tbody>
+									<c:forEach items="${list }" var="qna">
 
-							</tbody>
-							<tfoot>
-								<tr>
-									<td colspan="2"></td>
-									<td>100.00</td>
-								</tr>
-							</tfoot>
-						</table>
+										<tr>
+											<td><c:out value="${qna.no }" /></td>
+											<td><c:if test="${qna.type eq 'A' }">
+													<c:forEach begin="0" end="${qna.groupDepth - 1}" var="i">
+													&nbsp;&nbsp;
+												</c:forEach>
+													<img
+														src="<%=request.getContextPath()%>/images/reply_icon.png"
+														width="13px">
+												</c:if> <a
+												href="<%=request.getContextPath()%>/qna/detail.do?no=${qna.no }&type=list">
+													<c:out value="${qna.subject }" />
+											</a></td>
+											<td><c:out value="${qna.writer }" /></td>
+											<td><c:out value="${qna.regdate }" /></td>
+											<td><c:out value="${qna.viewCnt }" /></td>
+										</tr>
 
-</div>
+
+									</c:forEach>
+
+								</tbody>
+							</table>
+
+						</div>
 
 
 
 						<ul class="pagination" style="float: none;">
-							<li><span class="button disabled">Prev</span></li>
-							<li><a href="#" class="page active">1</a></li>
-							<li><a href="#" class="page">2</a></li>
-							<li><a href="#" class="page">3</a></li>
-							<li><span>&hellip;</span></li>
-							<li><a href="#" class="page">8</a></li>
-							<li><a href="#" class="page">9</a></li>
-							<li><a href="#" class="page">10</a></li>
-							<li><a href="#" class="button">Next</a></li>
+
+							<c:choose>
+								<c:when test="${ startPage le 5 }">
+									<li><span class="button disabled">Prev</span></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="<%=request.getContextPath() %>/qna/list.do?page=${ startPage - 5}" class="button">Prev</a></li>
+								</c:otherwise>
+							</c:choose>
+
+
+
+
+
+							<c:forEach begin="${ startPage }" end="${ endPage }" var="i">
+								<c:choose>
+									<c:when test="${ curPage eq i }">
+										<li><a
+											href="<%=request.getContextPath() %>/qna/list.do?page=${i}"
+											class="page active">${i }</a></li>
+									</c:when>
+									<c:otherwise>
+										<li><a
+											href="<%=request.getContextPath() %>/qna/list.do?page=${i}"
+											class="page">${i }</a></li>
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
+
+
+
+
+							<c:choose>
+								<c:when test="${ endPage ge totalPage }">
+									<li><span class="button disabled">Next</span></li>
+								</c:when>
+								<c:otherwise>
+									<li><a href="<%=request.getContextPath() %>/qna/list.do?page=${ startPage + 5}" class="button">Next</a></li>
+								</c:otherwise>
+							</c:choose>
+						
+						
 						</ul>
 
 

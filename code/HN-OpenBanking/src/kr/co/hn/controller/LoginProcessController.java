@@ -38,6 +38,7 @@ public class LoginProcessController implements Controller {
 		else {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
+			session.setAttribute("id", user.getId());
 			url = "redirect:/";
 		}
 		

@@ -35,7 +35,7 @@
 		
 		debugTrace(msg)
 		
-		param = encodeURIComponent(param)
+		param = encodeURIComponent(param) //
 		
 		let url = "param.jsp?name=" + param
 		httpRequest.open('GET', url, true) // 비동기방식 = true

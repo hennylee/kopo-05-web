@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.hn.dao.QNABoardDAO;
+import kr.co.hn.vo.MemberVO;
 import kr.co.hn.vo.QNABoradVO;
 
 public class QNAInsertController implements Controller {
@@ -12,23 +13,28 @@ public class QNAInsertController implements Controller {
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
-		HttpSession session = request.getSession();
+		request.setCharacterEncoding("utf-8");
 		
-		String writer = session.getId();
-		System.out.println(writer);
+		HttpSession session = request.getSession();
+		MemberVO user = (MemberVO) session.getAttribute("user");
+		String writer = user.getId();
+		String subject = request.getParameter("subject");
+		String content = request.getParameter("content");
 		
 		QNABoradVO vo = new QNABoradVO();
-		vo.setWriter("haeni");
-		vo.setSubject("#2 : 테스트");
-		vo.setContent("내용무");
+		vo.setWriter(writer);
+		vo.setSubject(subject);
+		vo.setContent(content);
 		
 		QNABoardDAO dao = new QNABoardDAO();
 		int result = dao.insertQ(vo);
+		String url = "";
 		
-		System.out.println(result);
+		if(result != -1) {
+			url = "redirect:/qna/list.do";
+		}
 		
-		
-		return "redirect:/qna/list.do";
+		return url;
 	}
 
 }

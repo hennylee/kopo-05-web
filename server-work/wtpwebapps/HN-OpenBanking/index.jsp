@@ -9,8 +9,20 @@
 -->
 <html>
 	<jsp:include page="/include/head.jsp"/>
-	
-	
+<!-- modal -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/main.css" />
+	<script>
+	$( document ).ready(function() {
+		$('#modalTrigger').hide();
+		  
+		if( '${msg}'){
+		 	$('#modalTrigger').trigger("click");
+		}
+	});
+	</script>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
@@ -22,6 +34,46 @@
 
 							<!-- Header -->
 								<jsp:include page="/include/header.jsp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		
+							<!-- 로그인 실패 모달-->
+							<!-- Trigger the modal with a button -->
+								<button id="modalTrigger" type="button" class="button primary" data-toggle="modal" data-target="#myModal">중복확인</button>
+							
+							
+							<!-- Modal -->
+							<div id="myModal" class="modal fade" role="dialog">
+							  <div class="modal-dialog">
+							
+							    <!-- Modal content-->
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close button modalClose" data-dismiss="modal" style="border: 0px">&ensp;&times;&ensp;</button>
+							        <h4 class="modal-title">로그인 결과</h4>
+							      </div>
+							      <div class="modal-body">
+							        <p>${msg }</p>
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn button primary" data-dismiss="modal">닫기</button>
+							      </div>
+							    </div>
+							
+							  </div>
+							</div>
+							
 
 
 

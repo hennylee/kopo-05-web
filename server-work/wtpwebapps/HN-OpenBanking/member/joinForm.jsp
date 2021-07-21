@@ -19,15 +19,8 @@
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-
-
-
-
-
-
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/css/main.css" />
 <script>
 
 function sample6_execDaumPostcode() {
@@ -126,7 +119,7 @@ function sample6_execDaumPostcode() {
 							    <!-- Modal content-->
 							    <div class="modal-content">
 							      <div class="modal-header">
-							        <button type="button" class="close button" data-dismiss="modal" style="height: 30px">&ensp;&times;&ensp;</button>
+							        <button type="button" class="close button modalClose" data-dismiss="modal" style="height: 30px">&ensp;&times;&ensp;</button>
 							        <h4 class="modal-title">중복 확인</h4>
 							      </div>
 							      <div class="modal-body">
