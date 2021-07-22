@@ -12,7 +12,7 @@ public class PagingUtil {
 	private int totalPage;		// 전체 페이지 갯수
 	private int startRow; 		// 시작 글번호
 	private int endRow; 		// 끝 글번호
-	private int curBlock;
+	private int curBlock;		// 
 	private int startPage; 		// 시작 페이지
 	private int endPage;  		// 끝 페이지
 	

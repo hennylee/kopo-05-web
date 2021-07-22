@@ -14,17 +14,36 @@ public class LoginProcessController implements Controller {
 		
 		request.setCharacterEncoding("utf-8");
 		
-		String id = request.getParameter("id");
-		String pw = request.getParameter("pw");
-		String type = request.getParameter("user-type");
+		HttpSession session = request.getSession();
+		MemberVO member = (MemberVO) session.getAttribute("member");
 		
-		MemberVO member = new MemberVO();
-		member.setId(id);
-		member.setPassword(pw);
-		member.setType(type);
+		String id = "";
+		String pw = "";
+		String type = "";
+		
+		if(member == null) {
+			id = request.getParameter("id");
+			pw = request.getParameter("pw");
+			type = request.getParameter("user-type");
+		}
+		else {
+			id = member.getId();
+			pw = member.getPassword();
+			type = member.getType();
+			session.removeAttribute("member");
+		}
+		
+		System.out.println("id : " + id);
+		System.out.println("pw : " + pw);
+		System.out.println("type : " + type);
+		
+		MemberVO vo = new MemberVO();
+		vo.setId(id);
+		vo.setPassword(pw);
+		vo.setType(type);
 		
 		LoginDAO dao = new LoginDAO();
-		MemberVO user =  dao.login(member);
+		MemberVO user =  dao.login(vo);
 		
 		String url = "";
 		String msg = "";
@@ -36,7 +55,6 @@ public class LoginProcessController implements Controller {
 		}
 		// 로그인 성공
 		else {
-			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			session.setAttribute("id", user.getId());
 			url = "redirect:/";

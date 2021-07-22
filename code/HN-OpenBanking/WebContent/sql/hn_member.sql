@@ -1,6 +1,6 @@
 -- HN은행 회원테이블
 create table hn_member(
-    id varchar2(20),
+    id varchar2(50),
     name varchar2(20) not null,
     resident_num1 char(6) not null,
     resident_num2 char(7) not null,
@@ -17,9 +17,6 @@ create table hn_member(
     reg_date date default sysdate,
     CONSTRAINT hn_member_id_pk PRIMARY key(id)    
 );
-
-
-
 
 
 -- HN은행 회원 더미 데이터　＆　회원가입
@@ -44,7 +41,7 @@ commit;
 
 -- 전체 회원 검색
 select * from hn_member;
-
+desc hn_member;
 
 -- 로그인
 select id, name, type 
@@ -69,21 +66,20 @@ INSERT INTO hn_member(
     ,type
 )
 VALUES(
-'test1'
-, '테스트1'
-,'892222'
-,'1111111'
+'haeni'
+, '이해니'
+,'931202'
+,'2222222'
 , '1111'
-,'test02'
+,'nee1202'
 ,'naver.com'
 ,'010'
-, '1233'
-,'3434'
-,98880
-,'서울'
-,'1234-3463'
+, '2121'
+,'7514'
+,10519
+,'경기 고양시 덕양구 화신로 76'
+,'101-601'
 ,'U');
 
 commit;
-
 

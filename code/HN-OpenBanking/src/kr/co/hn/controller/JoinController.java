@@ -2,6 +2,7 @@ package kr.co.hn.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.hn.dao.MemberDAO;
 import kr.co.hn.vo.MemberVO;
@@ -12,6 +13,11 @@ public class JoinController implements Controller {
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		request.setCharacterEncoding("utf-8");
+		
+		HttpSession session = request.getSession();
+		if(session != null) {
+			session.removeAttribute("member");
+		}
 		
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
@@ -57,19 +63,6 @@ public class JoinController implements Controller {
 		String basicAddr = request.getParameter("basicAddr");
 		String detailAddr = request.getParameter("detailAddr");
 		
-		System.out.println(id);
-		System.out.println(name);
-		System.out.println(residentNum1);
-		System.out.println(residentNum2);
-		System.out.println(password);
-		System.out.println(emailId);
-		System.out.println(emailDomain);
-		System.out.println(tel1);
-		System.out.println(tel2);
-		System.out.println(tel3);
-		System.out.println(post);
-		System.out.println(basicAddr);
-		System.out.println(detailAddr);
 		
 		
 		MemberVO vo = new MemberVO();

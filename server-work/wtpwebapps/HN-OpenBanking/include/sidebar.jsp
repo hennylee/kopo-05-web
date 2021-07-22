@@ -19,19 +19,28 @@
 										<h2>메뉴</h2>
 									</header>
 									<ul>
-										<li><a href="<%=request.getContextPath()%>/qna/list.do">Q & A</a></li>
-										<li><a href="index.html">홈페이지</a></li>
-										<li><a href="generic.html">회사 소개</a></li>
-										<li><a href="elements.html">상품 소개</a></li>
 										<li>
-											<span class="opener">오늘의 추천</span>
+											<span class="opener">계좌 관리</span>
 											<ul>
-												<li><a href="#">Lorem Dolor</a></li>
-												<li><a href="#">Ipsum Adipiscing</a></li>
-												<li><a href="#">Tempus Magna</a></li>
-												<li><a href="#">Feugiat Veroeros</a></li>
+												<li><a href="<%= request.getContextPath()%>/account/open.do">계좌 개설</a></li>
+												<li><a href="#">계좌 조회</a></li>
+												<li><a href="#">계좌 이체</a></li>
+												<li><a href="#">계좌 삭제</a></li>
 											</ul>
 										</li>
+										<li>
+											<span class="opener">오픈 뱅킹</span>
+											<ul>
+												<li><a href="#">서비스 등록</a></li>
+												<li><a href="#">서비스 해제</a></li>
+												<li><a href="#">계좌 조회</a></li>
+												<li><a href="#">계좌 이체</a></li>
+											</ul>
+										</li>
+										<li><a href="<%=request.getContextPath()%>/qna/list.do">Q & A</a></li>
+										<li><a href="<%=request.getContextPath()%>/generic.html">회사 소개</a></li>
+										<li><a href="<%=request.getContextPath()%>/elements.html">상품 소개</a></li>
+										<li><a href="<%=request.getContextPath()%>/index.html">홈페이지</a></li>
 										<li><a href="#">디자인 예시</a></li>
 										<li><a href="#">나만의 색상 분석</a></li>
 									</ul>

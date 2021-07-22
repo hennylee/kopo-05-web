@@ -16,7 +16,7 @@
 										</c:when>
 										<c:otherwise>
 											<ul class="icons">
-												<li>${user.id } 님, 안녕하세요!</li>
+												<li>${user.name } 님, 안녕하세요!</li>
 												<li><a href="<%= request.getContextPath() %>/logout.do" class="button small">Logout</a></li>
 											</ul>
 										</c:otherwise>

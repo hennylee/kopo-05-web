@@ -16,6 +16,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import kr.co.hn.dao.LoginDAO;
+import kr.co.hn.dao.MemberDAO;
 import kr.co.hn.vo.MemberVO;
 
 // api 명세 : https://developers.naver.com/docs/login/profile/profile.md
@@ -31,6 +33,9 @@ public class NaverCallbackController implements Controller {
 		 * &client_id=jyvqXeaVOVmV &client_secret=527300A0_COq1_XV33cf
 		 * &code=EIc5bFrl4RibFls1 &state=9kgsGTfH4j7IyAkg
 		 */
+		
+		String msg = "";
+		String url = "";
 
 		HttpSession session = request.getSession();
 		String code = request.getParameter("code");
@@ -45,18 +50,42 @@ public class NaverCallbackController implements Controller {
 			if (resObj != null) {
 				
 				String naverCode = (String)resObj.get("id");
-				String email = (String)resObj.get("email");
+				//String nickname = (String)resObj.get("nickname");
 				String name = (String)resObj.get("name");
+				String email = (String)resObj.get("email");
+				String tel = (String)resObj.get("mobile");
 				
 				String[] emails = email.split("@");
+				String[] tels = (tel.split("-"));
 				
 				MemberVO member = new MemberVO();
+				member.setId(naverCode);
 				member.setPassword(naverCode);
 				member.setEmailId(emails[0]);
 				member.setEmailDomain(emails[1]);
 				member.setName(name);
+				member.setTel1(tels[0]);
+				member.setTel2(tels[1]);
+				member.setTel3(tels[2]);
+				member.setType("U");
+				
+				LoginDAO dao = new LoginDAO();
+				MemberVO user = dao.login(member);
+				
+				// 존재하는 회원이 없으면 => 회원가입으로 진입
+				if(user == null) {
+					url = request.getContextPath() + "/naverJoinForm.do";
+					msg = "join";
+				}
+				// 존재하는 회원이 있으면 => 로그인으로 진입
+				else {
+					url = request.getContextPath() + "/loginProcess.do";
+					msg = "login";
+				}
 				
 				session.setAttribute("member", member);
+				request.setAttribute("msg", msg);
+				request.setAttribute("url", url);
 				
 			}
 		}

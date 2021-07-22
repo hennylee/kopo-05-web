@@ -11,9 +11,16 @@ public class MemberDAO {
 		
 		int result = -1;
 		StringBuilder sql = new StringBuilder();
-		sql.append("insert into t_member ");
-		sql.append("(id, name,resident_num1,resident_num2 password, email_id, email_domain,tel1, tel2, tel3, post, basic_addr,detail_addr, type) ");
-		sql.append("values(?, ?,?,? ?, ?, ?, ?, ?, ?, ?, ?, ?, 'U')");
+		sql.append(" insert into hn_member( ");
+		sql.append("    id, name, ");
+		sql.append("    resident_num1, resident_num2, ");
+		sql.append("    password, ");
+		sql.append("    email_id, email_domain ");
+		sql.append("    ,tel1, tel2, tel3 ");
+		sql.append("    ,post, basic_addr, detail_addr ");
+		sql.append("    ,type ");
+		sql.append(" ) VALUES( ");
+		sql.append(" ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'U')");
 		
 		try(
 			Connection conn = new ConnectionFactory().getConnection();

@@ -43,7 +43,8 @@ public class FrontControllerServlet extends HttpServlet {
 			
 			String callPage = control.handleRequest(request, response);
 			
-			System.out.println("callPage" + callPage);
+			System.out.println("callPage : " + callPage);
+			System.out.println("----------------------------------------------");
 			
 			if(callPage.startsWith("redirect:")) {
 				callPage = callPage.substring("redirect:".length());
