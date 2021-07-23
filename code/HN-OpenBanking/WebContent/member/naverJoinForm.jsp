@@ -116,21 +116,6 @@ function sample6_execDaumPostcode() {
 						<input type="hidden" name="tel2" value="${member.tel2 }"> 
 						<input type="hidden" name="tel3" value="${member.tel3 }"> 
 							
-						${member.id }<br>
-						${member.password } <br>
-						${member.emailId } <br>
-						${member.emailDomain } <br>
-						${member.name }<br>
-						${member.tel1 }<br>
-						${member.tel2 }<br>
-						${member.tel3 }<br>
-							
-							
-
-
-							
-					
-							
 							
 							<div class="col-12">
 								<h3>주민번호</h3>

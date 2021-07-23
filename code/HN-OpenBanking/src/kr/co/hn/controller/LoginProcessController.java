@@ -33,9 +33,6 @@ public class LoginProcessController implements Controller {
 			session.removeAttribute("member");
 		}
 		
-		System.out.println("id : " + id);
-		System.out.println("pw : " + pw);
-		System.out.println("type : " + type);
 		
 		MemberVO vo = new MemberVO();
 		vo.setId(id);
@@ -55,12 +52,12 @@ public class LoginProcessController implements Controller {
 		}
 		// 로그인 성공
 		else {
-			session.setAttribute("user", user);
-			session.setAttribute("id", user.getId());
+			request.setAttribute("user", user);
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userName", user.getName());
 			url = "redirect:/";
 		}
 		
-		System.out.println(msg);
 		request.setAttribute("msg", msg);
 		
 		

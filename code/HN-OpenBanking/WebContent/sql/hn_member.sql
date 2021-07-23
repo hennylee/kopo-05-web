@@ -83,3 +83,13 @@ VALUES(
 
 commit;
 
+-- 본인 개인정보 확인
+select count(*) from hn_member 
+    where id='test'
+    and resident_num1 = '959912'
+    and resident_num2 = '2222222'
+    and tel1 = '010'
+    and tel2 = '2121'
+    and tel3 = '7514'
+;
+

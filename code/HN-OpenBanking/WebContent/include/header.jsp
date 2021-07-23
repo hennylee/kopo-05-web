@@ -8,7 +8,7 @@
 									<a href="<%= request.getContextPath() %>/" class="logo"><img src="<%= request.getContextPath() %>/images/HN_logo.png" style="width: 60%"></a>
 									
 									<c:choose>
-										<c:when test="${ empty sessionScope.user }">
+										<c:when test="${ empty sessionScope.userId }">
 											<ul class="icons">
 												<li><a href="<%= request.getContextPath() %>/login.do" class="button small">Login</a></li>
 												<li><a href="<%= request.getContextPath() %>/joinForm.do" class="button small">Join</a></li>
@@ -16,7 +16,7 @@
 										</c:when>
 										<c:otherwise>
 											<ul class="icons">
-												<li>${user.name } 님, 안녕하세요!</li>
+												<li>${sessionScope.userName } 님, 안녕하세요!</li>
 												<li><a href="<%= request.getContextPath() %>/logout.do" class="button small">Logout</a></li>
 											</ul>
 										</c:otherwise>

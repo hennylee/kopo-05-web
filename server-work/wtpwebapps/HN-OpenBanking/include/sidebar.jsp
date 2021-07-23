@@ -20,21 +20,37 @@
 									</header>
 									<ul>
 										<li>
-											<span class="opener">계좌 관리</span>
+											<span class="opener">조회</span>
 											<ul>
-												<li><a href="<%= request.getContextPath()%>/account/open.do">계좌 개설</a></li>
+												<li><a href="<%=request.getContextPath()%>/account/find.do">전체 계좌 조회</a></li>
 												<li><a href="#">계좌 조회</a></li>
-												<li><a href="#">계좌 이체</a></li>
-												<li><a href="#">계좌 삭제</a></li>
+												<li><a href="#">거래 내역 조회</a></li>
 											</ul>
 										</li>
 										<li>
-											<span class="opener">오픈 뱅킹</span>
+											<span class="opener">이체</span>
 											<ul>
-												<li><a href="#">서비스 등록</a></li>
-												<li><a href="#">서비스 해제</a></li>
-												<li><a href="#">계좌 조회</a></li>
-												<li><a href="#">계좌 이체</a></li>
+												<li><a href="#">계좌이체</a></li>
+												<li><a href="#">이체 결과 조회</a></li>
+											</ul>
+										</li>
+										<li>
+											<span class="opener">비대면계좌개설</span>
+											<ul>
+												<li><a href="<%= request.getContextPath()%>/account/open/open1.do">신청하기</a></li>
+											</ul>
+										</li>
+										<li>
+											<span class="opener">오픈뱅킹</span>
+											<ul>
+												<li><a href="#">오픈뱅킹 조회</a></li>
+												<li><a href="#">오픈뱅킹 이체</a></li>
+												<li><a href="#">오픈뱅킹 이체내역조회</a></li>
+												<li><a href="#">자금 하나로 모으기</a></li>
+												<li><a href="#">계좌관리</a></li>
+												<li><a href="#">오픈뱅킹 재동의</a></li>
+												<li><a href="#">오픈뱅킹 전용비밀번호 재등록</a></li>
+												<li><a href="#">서비스 해지</a></li>
 											</ul>
 										</li>
 										<li><a href="<%=request.getContextPath()%>/qna/list.do">Q & A</a></li>

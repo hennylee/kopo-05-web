@@ -40,6 +40,8 @@ public class NaverLoginController implements Controller{
 	    // 상태 토큰은 추후 검증을 위해 세션에 저장되어야 한다.
 	    session.setAttribute("state", state);
 		
+	    System.out.println("apiURL : " + apiURL);
+	    
 		return "sendRedirect:" + apiURL;
 	}
 
