@@ -10,7 +10,7 @@ public class AccountVO {
 	private String alias;
 	private String openingDate;
 	private String typeCode;
-	private int bankCode;
+	private String bankCode;
 	
 	private AccountTypeVO typeVO;
 	
@@ -62,10 +62,10 @@ public class AccountVO {
 	public void setTypeCode(String typeCode) {
 		this.typeCode = typeCode;
 	}
-	public int getBankCode() {
+	public String getBankCode() {
 		return bankCode;
 	}
-	public void setBankCode(int bankCode) {
+	public void setBankCode(String bankCode) {
 		this.bankCode = bankCode;
 	}
 	

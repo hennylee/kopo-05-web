@@ -40,6 +40,7 @@ public class FrontControllerServlet extends HttpServlet {
 		try {
 			
 			Controller control = mappings.getController(uri);
+			System.out.println(control);
 			
 			String callPage = control.handleRequest(request, response);
 			

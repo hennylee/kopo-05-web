@@ -83,12 +83,29 @@ commit;
 
 -- 전체 계좌 조회
 select * from hn_account;
+select * from hn_member;
+select * from hn_acnt_type;
 
--- 계좌 생성일 조회
-/*
-- 계좌 생성일 순으로, 
-*/
 
+-- id로 전체 계좌 조회
+select a.account account, a.balance balance, a.alias alias, c.type type
+from hn_account a, hn_member b, hn_acnt_type c
+where a.type_code = c.code
+    and a.member_id = b.id
+    and a.member_id = 'test';
+
+
+-- 전화번호로 전체 계좌 조회
+select a.account account, a.balance balance, a.alias alias, c.type type
+from hn_account a, hn_member b, hn_acnt_type c
+where a.type_code = c.code
+    and b.tel1 = '010'
+    and b.tel2 = '2121'
+    and b.tel3 = '7514'
+    and a.member_id = b.id;
+
+
+-- 계좌 생성일에 따른 생성 가능 여부 판단
 select to_char((b.opening_date + 30), 'yyyy-MM-dd') as possible_date
 from hn_member a, hn_account b
 where a.tel1||'-'||a.tel2||'-'||a.tel3='010-2121-7514' 

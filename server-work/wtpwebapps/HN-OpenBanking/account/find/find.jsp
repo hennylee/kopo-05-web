@@ -107,10 +107,11 @@
 									<c:forEach items="${list }" var="account">
 									
 										<article>
-											<h3>[${account.typeVO.type }] ${account.account }</h3>
+											<p>[${account.typeVO.type }] ${account.account }</p>
+											<h3><fmt:formatNumber value="${account.balance }" type="Currency"/> 원</h3>
 											<p>${not empty account.alias? account.alias: "" }</p>
-											<ul class="actions">
-												<li><a href="#" class="button primary large">총 <fmt:formatNumber value="${account.balance }" type="Currency"/> 원</a></li>
+											<ul class="actions" style="place-content: baseline">
+												<li><a href="#" class="button fit">이체하기</a></li>
 											</ul>
 										</article>
 										
@@ -123,6 +124,11 @@
 											</ul>
 										</article>
 									</c:if>
+									<c:if test="${empty list }">
+									<article>
+										<h3>존재하는 계좌가 없습니다.</h3>
+										<article>
+									</c:if>
 										
 									</div>
 								</section>
@@ -132,62 +138,6 @@
 					
 					
 					
-					
-					
-					
-					
-						<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-						
-
-						<div class="row">
-							<div class="col-5 col-12-medium">
-
-								<div class="col-12">
-									<h4>계좌 종류 선택</h4>
-								</div>
-								<div class="col-12-small">
-									<select name="account_type" id="account_type">
-											<option value=""></option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-7 col-12-medium">
-								<div class="col-12">
-									<h4>계좌 비밀번호 입력</h4>
-								</div>
-
-								<div class="col-12">
-									<input type="password" name="password" id="password" value=""
-										placeholder="비밀번호 숫자 4자리" />
-								</div>
-
-
-								<br>
-
-								<div class="col-12">
-									<h4>계좌 별칭 입력</h4>
-								</div>
-								<div class="col-12">
-									<input type="text" name="alias" id="alias" value=""
-										placeholder="한글 계좌 별칭" />
-								</div>
-
-
-							</div>
-
-
-							<!-- Break -->
-							<div class="col-12" style="text-align: right; margin-top: 2em">
-								<input type="button" value="다음" class="button primary large" onclick="nextStep()"/>
-							</div>
-						</div>
-				</section>
 
 
 

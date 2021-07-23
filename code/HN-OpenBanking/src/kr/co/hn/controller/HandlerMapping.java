@@ -34,6 +34,7 @@ public class HandlerMapping {
 				String className = prop.getProperty(key.toString());
 				Class<?> clz = Class.forName(className);
 				mappings.put(key.toString(), (Controller)clz.newInstance());
+
 			}
 			
 		} catch(Exception e) {

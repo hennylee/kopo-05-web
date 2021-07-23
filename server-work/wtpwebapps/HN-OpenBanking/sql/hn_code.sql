@@ -4,6 +4,7 @@ create table hn_acnt_type(
     type varchar2(50)
 );
 
+select * from hn_acnt_type;
 
 -- hn계좌 종류 코드 데이터 삽입
 insert into hn_acnt_type values(

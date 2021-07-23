@@ -13,6 +13,82 @@ import kr.co.hn.vo.BankCodeVO;
 import kr.co.hn.vo.MemberVO;
 
 public class AccountDAO {
+	
+	// 계좌 비번 확인
+	public int checkPassword(AccountVO vo) {
+		int result = -1;
+		String sql = "select count(*) from hn_account where account = ?  and password = ? ";
+
+		try (Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			
+			int loc = 1;
+			pstmt.setString(loc++, vo.getAccount());
+			pstmt.setInt(loc++, vo.getPassword());
+
+			ResultSet rs = pstmt.executeQuery();
+
+			rs.next();
+			
+			result = rs.getInt(1);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+
+	}
+	
+	
+	// 상대 계좌 존재 여부 확인 & 상대 계좌주명 확인
+	public String inquiryHolder(AccountVO vo) {
+		String holder = ""; 
+		StringBuilder sql = new StringBuilder();
+		
+		sql.append("SELECT * FROM ( ");
+		sql.append("	    select a.acc_num ACCOUNT_NUM, '4000' as bank_code, a2.user_name name ");
+		sql.append("	    from t_account@YB_BANK a, t_member@YB_BANK a2 ");
+		sql.append("	    where a.user_id = a2.user_id ");
+		sql.append("    UNION ");
+		sql.append("	    select b.anum, '1000' as bank_code, holder name");
+		sql.append("	    from account@BANKER_BANK b");
+		sql.append("    UNION ");
+		sql.append("	    select c.account_num, '2000' as bank_code, name name");
+		sql.append("    	from account@CM_BANK c");
+		sql.append("    UNION ");
+		sql.append("	    select d.account account_num, '3000' as bank_code, d2.name as name");
+		sql.append("	    from hn_account@HN_BANK d, hn_member@HN_BANK d2");
+		sql.append("    	where d.member_id = d2.id");
+		sql.append(" ) WHERE ACCOUNT_NUM = ? ");
+		sql.append(" AND bank_code = ? ");
+		
+		
+		try(
+				Connection conn = new ConnectionFactory().getConnection();
+				PreparedStatement pstmt = conn.prepareStatement(sql.toString());
+		) {
+			
+			int loc = 1;
+			pstmt.setString(loc++, vo.getAccount());
+			pstmt.setString(loc++, vo.getBankCode());
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				holder = rs.getString("name");
+			};
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return holder;
+	}
+	
+	
 	public List<AccountVO> findById(String memberId){
 		List<AccountVO> list = new ArrayList<>();
 
@@ -182,13 +258,6 @@ public class AccountDAO {
 
 		String possibleDate = null;
 		StringBuilder sql = new StringBuilder();
-		/*
-		 * select possible_date from( select to_char((b.opening_date + 30),
-		 * 'yyyy-MM-dd') as possible_date from hn_member a, hn_account b where
-		 * a.tel1||'-'||a.tel2||'-'||a.tel3='010-2121-7514' and a.id = b.member_id and
-		 * (b.opening_date + 30) > sysdate order by b.opening_date desc )where rownum =
-		 * 1
-		 */
 
 		sql.append("select possible_date from( ");
 		sql.append(" select to_char((b.opening_date + 30), 'yyyy-MM-dd') as possible_date ");

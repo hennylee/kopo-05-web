@@ -22,15 +22,14 @@
 										<li>
 											<span class="opener">조회</span>
 											<ul>
-												<li><a href="<%=request.getContextPath()%>/account/find.do">전체 계좌 조회</a></li>
-												<li><a href="#">계좌 조회</a></li>
+												<li><a href="<%=request.getContextPath()%>/account/find.do">계좌 조회</a></li>
 												<li><a href="#">거래 내역 조회</a></li>
 											</ul>
 										</li>
 										<li>
 											<span class="opener">이체</span>
 											<ul>
-												<li><a href="#">계좌이체</a></li>
+												<li><a href="<%=request.getContextPath()%>/transfer1.do">계좌이체</a></li>
 												<li><a href="#">이체 결과 조회</a></li>
 											</ul>
 										</li>

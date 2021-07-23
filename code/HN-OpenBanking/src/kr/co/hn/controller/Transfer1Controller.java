@@ -7,9 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.hn.dao.AccountDAO;
+import kr.co.hn.vo.AccountTypeVO;
 import kr.co.hn.vo.AccountVO;
+import kr.co.hn.vo.BankCodeVO;
 
-public class AccountFindController implements Controller {
+public class Transfer1Controller implements Controller {
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -23,7 +25,7 @@ public class AccountFindController implements Controller {
 		
 		request.setAttribute("list", list);
 		
-		return "/account/find/find.jsp";
+		return "/transfer/transfer1.jsp";
 	}
 
 }
