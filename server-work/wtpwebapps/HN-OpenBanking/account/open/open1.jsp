@@ -14,7 +14,7 @@
 <script type="text/javascript">
 	
 	function checkRegex(){
-		let bCheck = false
+		let bCheck = true
 
 		let agree = $('#openStep1_agree')[0]
 		let residentNum1 = $('#residentNum1').val();
@@ -60,9 +60,6 @@
 			bCheck = false
 			$('#alert-modal-body-msg').text('전화번호 마지막 번호는 숫자 4자리로 입력하세요')
 			$('#alertModal').modal('show')
-		}
-		else{
-			bCheck = true
 		}
 		
 		return bCheck

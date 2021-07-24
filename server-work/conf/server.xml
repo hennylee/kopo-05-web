@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\Mission-Web-MVC01" path="/Mission-Web-MVC01" reloadable="true" source="org.eclipse.jst.jee.server:Mission-Web-MVC01"/><Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\Mission-Web" path="/Mission-Web" reloadable="true" source="org.eclipse.jst.jee.server:Mission-Web"/><Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\Lecture-Web" path="/Lecture-Web" reloadable="true" source="org.eclipse.jst.jee.server:Lecture-Web"/><Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\HN-OpenBanking" path="/HN-OpenBanking" reloadable="true" source="org.eclipse.jst.jee.server:HN-OpenBanking"/></Host>
+      <Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\kopo\kopo-05-web\server-work\wtpwebapps\HN-OpenBanking" path="/HN-OpenBanking" reloadable="true" source="org.eclipse.jst.jee.server:HN-OpenBanking"/></Host>
     </Engine>
   </Service>
 </Server>

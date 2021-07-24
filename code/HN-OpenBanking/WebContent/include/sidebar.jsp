@@ -50,6 +50,7 @@
 												<li><a href="#">오픈뱅킹 재동의</a></li>
 												<li><a href="#">오픈뱅킹 전용비밀번호 재등록</a></li>
 												<li><a href="#">서비스 해지</a></li>
+												<li><a href="<%=request.getContextPath()%>/openbank/register.do">서비스 신청</a></li>
 											</ul>
 										</li>
 										<li><a href="<%=request.getContextPath()%>/qna/list.do">Q & A</a></li>

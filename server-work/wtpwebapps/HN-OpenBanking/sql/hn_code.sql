@@ -44,10 +44,10 @@ insert into hn_bank_code VALUES(
 
 insert into hn_bank_code VALUES(
     '1000',
-    'natural은행'
+    'banker'
 );
 insert into hn_bank_code VALUES(
     '2000',
-    '충만은행'
+    'CM-Bank'
 );
 commit;

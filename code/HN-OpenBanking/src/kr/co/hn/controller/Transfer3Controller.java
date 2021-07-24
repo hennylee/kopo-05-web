@@ -32,7 +32,7 @@ public class Transfer3Controller implements Controller {
 		// 비밀번호 일치
 		if(result > 0) {
 			// 계좌 이체 성공
-			dao.transaction();
+			//dao.transaction();
 			
 			// 계좌 이체 실패
 			

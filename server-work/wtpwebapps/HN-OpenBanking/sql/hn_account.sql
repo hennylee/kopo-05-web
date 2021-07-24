@@ -60,7 +60,7 @@ create sequence seq_hn_acnt_mid_3 nocache;
 create sequence seq_hn_acnt_mid_4 nocache;
 
 -- 중간 번호 생성
-select to_char(seq_hn_acnt_mid_1.nextval, 'FM000000') from dual;
+--select to_char(seq_hn_acnt_mid_1.nextval, 'FM000000') from dual;
 
 --계좌 생성
 INSERT INTO hn_account(
@@ -79,7 +79,61 @@ INSERT INTO hn_account(
     ,'3000'
 );
 
+
+INSERT INTO hn_account(
+	account
+	,password
+	,member_id
+	,alias
+    ,type_code
+    ,bank_code
+) VALUES(
+	'222222-222222'
+	,'1993'
+	,'hwani'
+	,'소중한 생활비'
+    ,'0001'
+    ,'3000'
+);
+
+
+INSERT INTO hn_account(
+	account
+	,password
+	,member_id
+	,alias
+    ,type_code
+    ,bank_code
+) VALUES(
+	'333333-333333'
+	,'1111'
+	,'veryflow'
+	,'훈련비'
+    ,'0001'
+    ,'3000'
+);
+
+
+-- dohwi1226
+INSERT INTO hn_account(
+	account
+	,password
+	,member_id
+	,alias
+    ,type_code
+    ,bank_code
+) VALUES(
+	'555555-555555'
+	,'1111'
+	,'dohwi1226'
+	,'빌린돈'
+    ,'0001'
+    ,'3000'
+);
+
+
 commit;
+
 
 -- 전체 계좌 조회
 select * from hn_account;

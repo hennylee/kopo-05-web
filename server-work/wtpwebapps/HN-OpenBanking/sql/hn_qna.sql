@@ -28,11 +28,11 @@ from hn_qna where no = 63 order by group_no desc;
 
 
 -- 조회수 증가
-update hn_qna set view_cnt = view_cnt + 1 where no = 1;
+--update hn_qna set view_cnt = view_cnt + 1 where no = 1;
 
 -- 글 수정
-update hn_qna set subject = '하이', content = '바이' where no = 6;
-rollback;
+--update hn_qna set subject = '하이', content = '바이' where no = 6;
+
 
 -- 전체 글  조회 (단순 전체)
 select NO ,GROUP_NO  ,GROUP_DEPTH ,PARENT_NO ,
@@ -124,7 +124,7 @@ commit;
 
 
 -- 글삭제
-delete from hn_qna where no = 34;
+--delete from hn_qna where no = 34;
 
 -- 글삭제 가능 여부 체크 : 답변 달린 글이 있는지?
 select count(*) from hn_qna where parent_no = 6;

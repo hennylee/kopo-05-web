@@ -26,7 +26,20 @@
 				
 				
 				
+				<section>
+					<!-- Table -->
+					<header class="major">
+						<h2>오픈뱅킹 신청</h2>
+					</header>
 				
+					<h3 id="elements">1단계 : 본인 조회</h3>
+					<p>금융 거래 정보 조회를 위해 아래 정보를 입력해주세요</p>
+
+
+					<hr class="major" />
+				
+				
+				</section>
 				
 				
 				
