@@ -1393,8 +1393,8 @@ ul.contact {
       color: inherit; }
 
 /* Pagination */
-ul.pagination {
-  text-align: center;
+ul.pagination  {
+  text-align: center; 
   cursor: default;
   list-style: none;
   padding-left: 0; }

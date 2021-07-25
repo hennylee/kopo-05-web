@@ -7,7 +7,7 @@
 <script>
 $(document).ready(function(){
 	
-	    let holder = $('#holder').val()
+	    holder = $('#holder').val()
 	    let msg = $('#msg').val()
 		
 	    
@@ -19,11 +19,8 @@ $(document).ready(function(){
 			$('#amount').attr('readonly', true)
 			$('#secondStepBtn').css("visibility", "hidden")
 		}
-	    // 계좌 주가 존재하지 않으면
-		else{
-			$('#alert-modal-body-msg').text(msg)
-			$('#alertModal').modal('show')
-		}
+		$('#alert-modal-body-msg').text(msg)
+		$('#alertModal').modal('show')
 })
 
 function nextStep03(){
@@ -35,8 +32,12 @@ function nextStep03(){
 	$.ajax({
 		url : "<%=request.getContextPath()%>/transfer3.do",
 		data : {
-			acnt : account,
-			account_pw : accountPw,
+			myNum : account,
+			myPw : accountPw,
+			targetNum : accountNum,
+			amount : amount,
+			targetBank : typeCode,
+			targetName : holder
 		},
 		type : "post",
 		success : callback,
@@ -46,8 +47,9 @@ function nextStep03(){
 	});
 }
 
-function callback(){
-	
+function callback(result){
+	$('#modal-after-section').html(result)
+	$('#myModal').modal("show")
 }
 
 </script>

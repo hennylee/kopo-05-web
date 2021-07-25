@@ -66,6 +66,41 @@ INSERT INTO hn_member(
     ,type
 )
 VALUES(
+'nee1202'
+, '리해리'
+,'931202'
+,'2252232'
+, '1111'
+,'nee1993'
+,'daum.net'
+,'010'
+, '2324'
+,'7514'
+,10519
+,'경기 고양시 덕양구 화신로 76'
+,'101-601'
+,'U');
+
+commit;
+
+
+INSERT INTO hn_member(
+    id
+    ,name
+    ,resident_num1
+    ,resident_num2
+    ,password
+    ,email_id
+    ,email_domain
+    ,tel1
+    ,tel2
+    ,tel3
+    ,post
+    ,basic_addr
+    ,detail_addr
+    ,type
+)
+VALUES(
 'haeni'
 , '이해니'
 ,'931202'

@@ -19,7 +19,7 @@ let accountNum
 let amount
 let typeCode
 let accountPw
-
+let holder
 	function checkRegex(){
 		let bCheck = false
 		balance = $("input[name='select_account']:checked").val()
@@ -49,8 +49,6 @@ let accountPw
 			$("input[name='select_account']").attr('disabled', true)
 			$('#firstStepBtn').hide()
 			
-			// 현재 선택한 계좌에 대한 정보를 간직하고 있어야함 : 계좌번호, 잔액
-<%-- 			$(location).attr('href',"<%=request.getContextPath()%>/transfer2.do?acnt=" +account ); --%>
 				$.ajax({
 					url : "<%=request.getContextPath()%>/transfer2.do",
 					data : {
@@ -70,68 +68,6 @@ let accountPw
 	function callback(result) {
 		$('#ajaxTest').append(result)
 	}
-
-	function checkRegex_02(){
-		let bCheck = false
-
-		accountNum = $('#account_num').val();
-		amount = $('#amount').val();
-		
-		let accnt_regex = /\d\-\d/
-		let amount_regex = /\d/
-		
-		// 계좌번호 정규식 검사
-		if(!accnt_regex.test(accountNum)){
-			bCheck = false
-			$('#alert-modal-body-msg').text('계좌번호는 하이픈을 포함한 숫자만 입력 가능합니다.')
-			$('#alertModal').modal('show')
-		}
-		// 입금 정규식 금액 검사
-		else if(!amount_regex.test(amount)){
-			bCheck = false
-			$('#alert-modal-body-msg').text('이체할 금액은 숫자만 입력 가능합니다. ')
-			$('#alertModal').modal('show')
-		}
-		else{
-			bCheck = true
-		}
-		return bCheck
-	}
-
-	function nextStep_02(){
-		
-		
-		let url = ""
-
-		typeCode = $("select[name='bank_code'] option:selected").val();
-		
-		if(checkRegex_02()){
-			
-			$.ajax({
-				url : "<%=request.getContextPath()%>/inquiry/account.do",
-				data : {
-					typeCode : typeCode,
-					accountNum : accountNum,
-					amount : amount,
-					myBalance : balance,
-					myAccount : account
-				},
-				type : "post",
-				success : callback_02,
-				error : function() {
-					alert('error')
-				}
-
-			});
-		
-		}
-
-	}
-
-	function callback_02(result) {
-		$('#ajaxTest02').append(result)
-	}
-
 </script>
 
 

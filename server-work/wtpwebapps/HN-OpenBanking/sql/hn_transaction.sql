@@ -48,7 +48,11 @@ select * from hn_transaction;
 
 -- 1) 보낼 수 있는 잔고 있는지 확인 (0이면 실패)
 select count(*)
+<<<<<<< Updated upstream
 from hn_account a --, hn_member b
+=======
+from hn_account a --, hn_member 
+>>>>>>> Stashed changes
 where --a.member_id = b.id and 
 a.account =  '99999-999999' --'88888-88888'
 and (a.balance - 1000) > 0;
@@ -122,5 +126,9 @@ EXCEPTION
 END pro_hn_transaction;
 /
 
+<<<<<<< Updated upstream
 --execute pro_hn_transaction('99999-999999', '000002331948', '3000', 1000 );
+=======
+execute pro_hn_transaction('222222-222222', '333333-333333', '3000', 1000 );
+>>>>>>> Stashed changes
 

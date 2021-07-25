@@ -1,5 +1,16 @@
+<<<<<<< Updated upstream
 --계좌 조회
 
+=======
+-- 전체 조회
+select * from hn_account;
+select * from hn_member;
+select * from hn_acnt_type;
+select * from HN_TRANSACTION;
+
+
+--계좌 조회
+>>>>>>> Stashed changes
 
 -- (1) 전화번호로 전체 계좌 조회
 /* HN은행 */
@@ -51,7 +62,11 @@ and a.member_id = b.id
 and a.Type_code = c.code;
 
 
+<<<<<<< Updated upstream
 
+=======
+-- 전체 계좌 중에서 일치하는 정보 있는지 확인
+>>>>>>> Stashed changes
 SELECT * FROM (
     select a.acc_num ACCOUNT_NUM, '4000' as bank_code, a2.user_name name
     from t_account@YB_BANK a, t_member@YB_BANK a2
@@ -64,8 +79,20 @@ SELECT * FROM (
     from account@CM_BANK c
   UNION
     select d.account account_num, '3000' as bank_code, d2.name as name
+<<<<<<< Updated upstream
     from hn_account@HN_BANK d, hn_member@HN_BANK d2
     where d.member_id = d2.id
 )
 WHERE ACCOUNT_NUM = '222222-222222' 
 AND bank_code = '3000';
+=======
+    from hn_account d, hn_member d2
+    where d.member_id = d2.id
+)
+WHERE ACCOUNT_NUM = '88888-88888' 
+AND bank_code = '3000';
+
+
+
+
+>>>>>>> Stashed changes

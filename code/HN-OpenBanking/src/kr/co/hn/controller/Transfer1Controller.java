@@ -7,9 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.co.hn.dao.AccountDAO;
-import kr.co.hn.vo.AccountTypeVO;
 import kr.co.hn.vo.AccountVO;
-import kr.co.hn.vo.BankCodeVO;
 
 public class Transfer1Controller implements Controller {
 
@@ -20,6 +18,7 @@ public class Transfer1Controller implements Controller {
 		HttpSession session = request.getSession();
 		String memberId = (String) session.getAttribute("userId");
 		
+		// 내 계좌 목록 불러오기
 		AccountDAO dao = new AccountDAO();
 		List<AccountVO> list = dao.findById(memberId);
 		

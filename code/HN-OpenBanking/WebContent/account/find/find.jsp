@@ -111,7 +111,7 @@
 											<h3><fmt:formatNumber value="${account.balance }" type="Currency"/> 원</h3>
 											<p>${not empty account.alias? account.alias: "" }</p>
 											<ul class="actions" style="place-content: baseline">
-												<li><a href="#" class="button fit">이체하기</a></li>
+												<li><a href="<%=request.getContextPath() %>/transfer/search.do?acc=${account.account }" class="button fit">상세보기</a></li>
 											</ul>
 										</article>
 										

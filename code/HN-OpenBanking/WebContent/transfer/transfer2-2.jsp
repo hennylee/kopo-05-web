@@ -3,7 +3,73 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<script>
 
+function checkRegex_02(){
+	let bCheck = false
+
+	accountNum = $('#account_num').val();
+	amount = $('#amount').val();
+
+	let accnt_regex = /\d\-\d|\d/
+	let amount_regex = /\d/
+	
+	// 계좌번호 정규식 검사
+	if(!accnt_regex.test(accountNum)){
+		bCheck = false
+		$('#alert-modal-body-msg').text('계좌번호는 하이픈을 포함한 숫자만 입력 가능합니다.')
+		$('#alertModal').modal('show')
+	}
+	else if(!amount_regex.test(amount)){
+		bCheck = false
+		$('#alert-modal-body-msg').text('이체할 금액은 숫자만 입력 가능합니다. ')
+		$('#alertModal').modal('show')
+	}
+	else if(Number(amount)>Number(balance)){
+		bCheck = false
+		$('#alert-modal-body-msg').text('잔액이 부족합니다. ')
+		$('#alertModal').modal('show')
+	}
+	else{
+		bCheck = true
+	}
+	return bCheck
+}
+
+function nextStep_02(){
+	
+	let url = ""
+
+	typeCode = $("select[name='bank_code'] option:selected").val();
+	
+	if(checkRegex_02()){
+		
+		$.ajax({
+			url : "<%=request.getContextPath()%>/inquiry/account.do",
+			data : {
+				typeCode : typeCode,
+				accountNum : accountNum,
+				amount : amount,
+				myBalance : balance,
+				myAccount : account
+			},
+			type : "post",
+			success : callback_02,
+			error : function() {
+				alert('error')
+			}
+
+		});
+	
+	}
+
+}
+
+function callback_02(result) {
+	$('#ajaxTest02').append(result)
+}
+
+</script>
 				<section id=ajaxTest02>
 					<h3 id="elements">2단계 : 입금 계좌 입력</h3>
 					<p>입금하실 계좌 정보를 선택해주세요</p>

@@ -1,18 +1,12 @@
 package kr.co.hn.controller;
 
-import java.util.Random;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.simple.JSONObject;
-
 import kr.co.hn.dao.AccountDAO;
-import kr.co.hn.dao.MemberDAO;
 import kr.co.hn.util.CreateAcntNum;
 import kr.co.hn.vo.AccountVO;
-import kr.co.hn.vo.MemberVO;
 
 public class AccountOpenStep2Controller implements Controller {
 
@@ -55,7 +49,7 @@ public class AccountOpenStep2Controller implements Controller {
 		request.setAttribute("msg", msg);
 		request.setAttribute("url", url);
 
-		return "/include/modal.jsp";
+		return "/include/modalConfirm.jsp";
 	}
 
 }

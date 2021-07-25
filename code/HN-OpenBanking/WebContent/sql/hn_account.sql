@@ -71,9 +71,9 @@ INSERT INTO hn_account(
     ,type_code
     ,bank_code
 ) VALUES(
-	'111111'
+	'111111-111111'
 	,'1993'
-	,'nee1202'
+	,'haeni'
 	,null
     ,'0001'
     ,'3000'
@@ -135,11 +135,6 @@ INSERT INTO hn_account(
 commit;
 
 
--- 전체 계좌 조회
-select * from hn_account;
-select * from hn_member;
-select * from hn_acnt_type;
-
 
 -- id로 전체 계좌 조회
 select a.account account, a.balance balance, a.alias alias, c.type type
@@ -160,11 +155,6 @@ where a.type_code = c.code
 
 
 -- 계좌 생성일에 따른 생성 가능 여부 판단
-select to_char((b.opening_date + 30), 'yyyy-MM-dd') as possible_date
-from hn_member a, hn_account b
-where a.tel1||'-'||a.tel2||'-'||a.tel3='010-2121-7514' 
-and a.id = b.member_id and (b.opening_date + 30) > sysdate
-order by b.opening_date desc;
 
 select possible_date from(
     select to_char((b.opening_date + 30), 'yyyy-MM-dd') as possible_date
@@ -174,3 +164,11 @@ select possible_date from(
     order by b.opening_date desc
 )
 where rownum = 1;
+
+-- 비밀번호 조회
+select count(*) from hn_account where account = '555555-555555' and password = 1111;
+
+
+ -- 내 잔액 update
+update hn_account set balance = 300000 where account = '111111-111111';
+commit;
